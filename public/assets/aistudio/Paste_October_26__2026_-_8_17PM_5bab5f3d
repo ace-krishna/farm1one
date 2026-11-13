@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"on-primary-fixed-variant": "#155041", "on-background": "#191c1b", surface: "#f9faf8", background: "#f9faf8", "tertiary-fixed": "#cce5ff", "on-primary-container": "#86beab", "inverse-surface": "#2e3130", "surface-dim": "#d9dad8", "on-tertiary-fixed": "#001d31", "surface-variant": "#e1e3e1", "on-tertiary-fixed-variant": "#004b73", "on-error-container": "#93000a", outline: "#707975", "secondary-fixed-dim": "#ffb77d", "surface-bright": "#f9faf8", tertiary: "#00324f", "on-surface": "#191c1b", "tertiary-fixed-dim": "#93ccff", "on-tertiary-container": "#60baff", "on-secondary-fixed-variant": "#6e3900", "inverse-primary": "#99d2be", primary: "#00362a", "on-secondary-fixed": "#2f1500", "surface-container-high": "#e7e8e6", "tertiary-container": "#004971", "on-tertiary": "#ffffff", "on-secondary": "#ffffff", "primary-fixed-dim": "#99d2be", "outline-variant": "#bfc9c3", "error-container": "#ffdad6", secondary: "#904d00", "on-surface-variant": "#404945", "surface-container-low": "#f3f4f2", "surface-tint": "#316858", error: "#ba1a1a", "surface-container-lowest": "#ffffff", "primary-fixed": "#b5efda", "on-primary": "#ffffff", "on-primary-fixed": "#002018", "surface-container-highest": "#e1e3e1", "on-secondary-container": "#663500", "secondary-container": "#fe932c", "primary-container": "#134e3f", "surface-container": "#edeeec", "inverse-on-surface": "#f0f1ef", "secondary-fixed": "#ffdcc3", "on-error": "#ffffff"}, borderRadius: {DEFAULT: "1rem", lg: "2rem", xl: "3rem", full: "9999px"}, spacing: {"space-xs": "0.25rem", gutter: "1rem", "space-sm": "0.5rem", margin: "1rem", "space-md": "1rem", "space-lg": "1.5rem", "gutter-mobile": "0.75rem", "margin-mobile": "1rem", "gutter-desktop": "1.5rem", "margin-desktop": "2.5rem", "space-xl": "2rem"}, fontFamily: {"body-lg": ["Plus Jakarta Sans"], "data-metric": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], headline: ["Plus Jakarta Sans"], display: ["Plus Jakarta Sans"], body: ["Plus Jakarta Sans"], label: ["Plus Jakarta Sans"]}, fontSize: {"body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}], "data-metric": ["32px", {lineHeight: "38px", letterSpacing: "-0.02em", fontWeight: "800"}], "headline-md": ["20px", {lineHeight: "26px", fontWeight: "600"}], "headline-lg-mobile": ["22px", {lineHeight: "28px", fontWeight: "600"}], "label-md": ["12px", {lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600"}], "body-sm": ["12px", {lineHeight: "16px", fontWeight: "400"}], "headline-sm": ["17px", {lineHeight: "22px", fontWeight: "600"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], "headline-lg": ["28px", {lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700"}], "headline-xl": ["36px", {lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700"}], "label-lg": ["14px", {lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "600"}], "label-sm": ["10px", {lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600"}], "headline-xl-mobile": ["28px", {lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700"}]}}}};</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; min-height: 100%; } body { overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-40 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="relative w-9 h-9 rounded-xl bg-gradient-to-br from-primary-container/90 via-primary/80 to-[#082820]/90 backdrop-blur-md border border-white/40 shadow-inner shadow-white/20 flex items-center justify-center overflow-hidden"><div class="absolute -top-2 -left-2 w-6 h-6 bg-white/20 rounded-full blur-sm pointer-events-none"></div><span class="material-symbols-outlined text-[#b5efda] text-[22px] drop-shadow-sm relative z-10">agriculture</span></div><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">FARM FAMILY</span><h1 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Home</h1></div></div><div class="inline-flex p-1 bg-surface-container rounded-full items-center shadow-inner"><button class="px-2.5 py-1 rounded-full text-label-sm font-semibold text-on-surface-variant hover:text-primary transition-colors" onclick="const p=this.parentElement; p.querySelectorAll('button').forEach(b=&gt;{b.className='px-2.5 py-1 rounded-full text-label-sm font-semibold text-on-surface-variant hover:text-primary transition-colors';}); this.className='px-2.5 py-1 rounded-full text-label-sm font-bold bg-primary text-on-primary shadow-sm transition-all';" type="button">English</button><button class="px-2.5 py-1 rounded-full text-label-sm font-bold bg-primary text-on-primary shadow-sm transition-all" onclick="const p=this.parentElement; p.querySelectorAll('button').forEach(b=&gt;{b.className='px-2.5 py-1 rounded-full text-label-sm font-semibold text-on-surface-variant hover:text-primary transition-colors';}); this.className='px-2.5 py-1 rounded-full text-label-sm font-bold bg-primary text-on-primary shadow-sm transition-all';" type="button"><span class="" style="letter-spacing: 0.4px;">हिंदी</span></button><button class="px-2.5 py-1 rounded-full text-label-sm font-semibold text-on-surface-variant hover:text-primary transition-colors" onclick="const p=this.parentElement; p.querySelectorAll('button').forEach(b=&gt;{b.className='px-2.5 py-1 rounded-full text-label-sm font-semibold text-on-surface-variant hover:text-primary transition-colors';}); this.className='px-2.5 py-1 rounded-full text-label-sm font-bold bg-primary text-on-primary shadow-sm transition-all';" type="button"><span class="" style="letter-spacing: 0.4px;">हिंदी</span></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-28 bg-surface"><div class="flex flex-col w-full pb-6">
+<!-- Top Hero Banner: Farmer Profile & Localization Bar -->
+<!-- QUICK ACCESS CHIPS -->
+<section class="px-margin mt-space-sm mb-space-lg"><div class="flex items-center justify-between mb-space-xs"><span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Quick Actions</span><span class="font-label-sm text-label-sm text-on-surface-variant">Recently visited</span></div><div class="grid grid-cols-2 gap-space-sm"><button class="flex items-center gap-2.5 p-space-sm rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm text-left hover:bg-surface-container-low transition-colors active:scale-[0.98]"><div class="w-9 h-9 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed shrink-0"><span class="material-symbols-outlined text-[20px]">pets</span></div><div class="overflow-hidden"><p class="font-label-md text-label-md font-bold text-on-surface truncate">My Cattle</p><p class="font-label-sm text-label-sm text-on-surface-variant">4 Animals Registered</p></div></button><button class="flex items-center gap-2.5 p-space-sm rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm text-left hover:bg-surface-container-low transition-colors active:scale-[0.98]"><div class="w-9 h-9 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0"><span class="material-symbols-outlined text-[20px]">trending_up</span></div><div class="overflow-hidden"><p class="font-label-md text-label-md font-bold text-on-surface truncate">Mandis &amp; Rates</p><p class="font-label-sm text-label-sm text-on-surface-variant">Live Pune Market</p></div></button></div></section>
+<!-- PRIMARY HERO CARD: AI ANIMAL HEALTH SCAN -->
+<section class="mb-space-lg"><div class="px-margin flex items-center justify-between mb-space-xs"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-primary">pets</span><span class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-bold">My Registered Animals</span></div><button class="font-label-sm text-label-sm text-primary font-bold hover:underline flex items-center gap-0.5" type="button"><span class="">View All (4)</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></button></div><div class="flex overflow-x-auto scrollbar-none gap-space-sm px-margin py-1"><button class="flex flex-col items-center shrink-0 text-center active:scale-[0.98] transition-all" type="button"><div class="w-16 h-16 rounded-full overflow-hidden bg-[#8fa998] flex items-center justify-center"><img alt="Gauri Gir Cow" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl_WqgtKL62C3Dz6NVVveO_6YkfvN-UQwgcN2NmNB-hCkXleZ8MUl_SXICka1nYISG24SsZNtVXkQ7VhCSXNq58idhZrDh2LJUV8KvraAPcJD0X-z3BKiLMBU6qosR0yZiRZ97iTnFQaXPDYWArX86gaF3SGizATW8NF4SUcq7QiY3oe_eDlnOTLmx7E3qy9SZzfdZxfLLxzFx-VoGedoooBhGjsSO3Xvw-BE78AA03mYeNf7xx1CIvbNecnnMpzChrg"/></div><span class="font-label-md text-label-md font-bold text-on-surface mt-1.5 truncate w-16">Gauri</span><span class="font-label-sm text-[10px] text-on-surface-variant">Gir • #02</span></button><button class="flex flex-col items-center shrink-0 text-center active:scale-[0.98] transition-all" type="button"><div class="w-16 h-16 rounded-full overflow-hidden bg-[#8fa998] flex items-center justify-center text-white"><span class="material-symbols-outlined text-[30px]">cruelty_free</span></div><span class="font-label-md text-label-md font-bold text-on-surface mt-1.5 truncate w-16">Nandi</span><span class="font-label-sm text-[10px] text-on-surface-variant">Bull • #01</span></button><button class="flex flex-col items-center shrink-0 text-center active:scale-[0.98] transition-all" type="button"><div class="w-16 h-16 rounded-full overflow-hidden bg-[#8fa998] flex items-center justify-center text-white"><span class="material-symbols-outlined text-[30px]">sound_detection_dog_barking</span></div><span class="font-label-md text-label-md font-bold text-on-surface mt-1.5 truncate w-16">Lakshmi</span><span class="font-label-sm text-[10px] text-on-surface-variant">Cow • #03</span></button><button class="flex flex-col items-center shrink-0 text-center active:scale-[0.98] transition-all" type="button"><div class="w-16 h-16 rounded-full overflow-hidden bg-[#8fa998] flex items-center justify-center text-white"><span class="material-symbols-outlined text-[30px]">agriculture</span></div><span class="font-label-md text-label-md font-bold text-on-surface mt-1.5 truncate w-16">Bheema</span><span class="font-label-sm text-[10px] text-on-surface-variant">Cow • #04</span></button></div><div class="px-margin mt-space-sm"><div class="p-space-sm rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between gap-space-sm shadow-sm"><div class="flex items-center gap-space-sm overflow-hidden"><div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed shrink-0"><span class="material-symbols-outlined text-[22px]">add</span></div><div class="overflow-hidden"><p class="font-label-md text-label-md font-bold text-on-surface truncate">Register / Add Farm Animal</p><p class="font-label-sm text-label-sm text-on-surface-variant truncate">Add cow, buffalo, or goat with ear-tag or photo</p></div></div><button class="px-2.5 py-1.5 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-bold flex items-center gap-1 shrink-0 active:scale-[0.98] shadow-sm transition-all" type="button"><span class="">+ Add Animal</span></button></div></div></section><section class="px-margin mb-space-lg">
+<div class="relative overflow-hidden rounded-[28px] p-space-md text-white backdrop-blur-2xl bg-gradient-to-br from-[#0c392d]/85 via-[#134e3f]/75 to-[#082820]/90 border border-white/25 border-t-white/40 shadow-[0_20px_40px_-15px_rgba(10,42,34,0.45)]" style="box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.35), 0 20px 40px -15px rgba(10, 42, 34, 0.45);">
+<!-- Ambient Fluid Glass Orbs / Blobs -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-emerald-400/20 rounded-full blur-2xl pointer-events-none -z-0"></div>
+<div class="absolute -bottom-8 -left-8 w-36 h-36 bg-teal-300/15 rounded-full blur-xl pointer-events-none -z-0"></div>
+<div class="absolute top-1/2 right-1/4 w-24 h-24 bg-primary-fixed/15 rounded-full blur-lg pointer-events-none -z-0"></div>
+<!-- Content Layer -->
+<div class="flex flex-col relative z-10">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[#b5efda] font-label-sm text-label-sm font-semibold shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span> Instant Diagnostic AI
+        </span>
+<div class="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90">
+<span class="material-symbols-outlined text-[18px]">center_focus_strong</span>
+</div>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-white leading-tight mb-1 drop-shadow-sm font-bold">
+        AI Animal Health Scan
+      </h2>
+<p class="font-body-sm text-body-sm text-white/80 leading-relaxed mb-space-md">
+        Point camera at cattle or goat to detect skin issues, eye infections, and nutritional stress.
+      </p>
+<!-- Liquid Glass Buttons -->
+<div class="flex flex-col gap-2.5">
+<button class="w-full h-12 py-2.5 px-4 rounded-xl font-headline-sm text-headline-sm flex items-center justify-center gap-2 bg-white text-[#0c392d] font-bold shadow-lg shadow-black/10 border border-white/80 hover:bg-white/95 active:scale-[0.99] transition-all cursor-pointer" id="scanAnimalNowBtn" onclick="if(typeof openScanCameraModal === 'function'){ openScanCameraModal(); }" type="button">
+<span class="material-symbols-outlined text-[22px] text-[#0c392d]">photo_camera</span>
+<span class="">Scan Animal Now</span>
+<span class="material-symbols-outlined text-[18px] ml-1 text-[#0c392d]">arrow_forward</span>
+</button>
+<button class="w-full h-12 py-2.5 px-4 rounded-xl font-headline-sm text-headline-sm flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 font-semibold shadow-sm active:scale-[0.99] transition-all cursor-pointer" id="uploadFromGalleryBtn" onclick="if(typeof openUploadGalleryModal === 'function'){ openUploadGalleryModal(); }" type="button">
+<span class="material-symbols-outlined text-[22px] text-white">photo_library</span>
+<span class="">Upload from Gallery</span>
+<span class="material-symbols-outlined text-[18px] ml-1 text-white">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- DAILY LIVESTOCK STATUS SNAPSHOT -->
+<!-- SECONDARY FEATURE CAROUSEL (HORIZONTAL SCROLL ONLY - STRICT CONSTRAINT) -->
+<section class="mb-space-lg"><div class="px-margin flex items-center justify-between mb-space-xs"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Farm Services</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Essential Updates</h3></div></div><div class="flex flex-col gap-space-md px-margin"><div class="w-full rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm p-space-md flex flex-col justify-between gap-space-sm"><div><div class="flex items-center justify-between mb-space-xs"><div class="w-9 h-9 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed shrink-0"><span class="material-symbols-outlined text-[20px]">play_circle</span></div><span class="px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary font-label-sm text-label-sm font-bold">12 Lessons</span></div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-1">i-Learning &amp; Guides</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Video lessons on dairy yield optimization and nutritious fodder preservation.</p></div><div class="pt-space-xs"><button class="w-full h-9 rounded-lg bg-surface-container-low text-primary font-label-md text-label-md font-semibold flex items-center justify-center gap-1 hover:bg-surface-container transition-colors" type="button"><span class="">Watch Modules</span><span class="material-symbols-outlined text-[16px]">chevron_right</span></button></div></div><div class="w-full rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm p-space-md flex flex-col justify-between gap-space-sm"><div><div class="flex items-center justify-between mb-space-xs"><div class="w-9 h-9 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0"><span class="material-symbols-outlined text-[20px]">vaccines</span></div><span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">schedule</span> 1 Due Soon</span></div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-1">Vaccination Schedule</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Upcoming FMD booster &amp; Deworming schedule for your registered livestock.</p></div><div class="pt-space-xs"><button class="w-full h-9 rounded-lg bg-secondary font-label-md text-label-md font-semibold flex items-center justify-center gap-1 hover:bg-surface-container transition-colors" type="button"><span class="">View Vaccination Schedule</span><span class="material-symbols-outlined text-[16px]">chevron_right</span></button></div></div></div></section>
+<!-- RECENT COMMUNITY & KISAN DISCUSSIONS -->
+</div>
+<script>
+  // Simple micro-interaction for language selector badge toggle
+  const langBtn = document.getElementById('langToggleBtn');
+  if (langBtn) {
+    const languages = ['मराठी', 'हिंदी', 'English'];
+    let currentIdx = 0;
+    langBtn.addEventListener('click', () => {
+      currentIdx = (currentIdx + 1) % languages.length;
+      const labelSpan = langBtn.querySelector('span:nth-child(2)');
+      if (labelSpan) {
+        labelSpan.textContent = languages[currentIdx];
+      }
+    });
+  }
+</script></main>
+<!-- POPUP 1: Dedicated Modal for "Scan Animal Now" (Live AI Camera) -->
+<div aria-hidden="true" aria-modal="true" class="fixed inset-0 z-50 flex items-end justify-center transition-all duration-300 pointer-events-none opacity-0 invisible" id="scanCameraModal" role="dialog">
+<!-- Backdrop scrim -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="scanCameraBackdrop"></div>
+<!-- Sheet Container -->
+<div class="relative w-full max-w-[430px] bg-surface rounded-t-[28px] border-t border-white/60 shadow-[0_-10px_40px_rgba(0,0,0,0.25)] flex flex-col max-h-[85vh] overflow-hidden transform transition-transform duration-300 ease-out z-10 pb-safe translate-y-full" id="scanCameraContentWrapper">
+<!-- Drag handle pill -->
+<div class="flex justify-center pt-3 pb-1 cursor-pointer" id="scanCameraDragHandle">
+<div class="w-10 h-1.5 rounded-full bg-outline-variant/60"></div>
+</div>
+<!-- Header bar -->
+<div class="flex items-center justify-between px-margin pt-2 pb-3 border-b border-outline-variant/20">
+<div class="flex flex-col">
+<span class="font-label-sm text-primary uppercase font-bold tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">photo_camera</span>AI Camera Scan
+        </span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Select Animal to Scan</h3>
+</div>
+<button aria-label="Close dialog" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors active:scale-95" id="scanCameraCloseBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Scrollable content area -->
+<div class="p-margin overflow-y-auto overscroll-contain">
+<div class="flex items-center justify-between mb-3">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Choose from your registered animals for live camera diagnosis:</p>
+</div>
+<!-- Animals Grid container for Camera -->
+<div class="grid grid-cols-3 gap-3 mb-4" id="scanCameraGrid">
+<button class="scan-camera-item group relative flex flex-col items-center p-2.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary hover:bg-surface-container-low transition-all active:scale-95 text-center focus:outline-none" data-animal-id="ani_02" data-animal-name="Gauri" type="button">
+<div class="relative w-16 h-16 rounded-full p-0.5 transition-all mb-1.5 group-hover:ring-2 group-hover:ring-primary">
+<div class="w-full h-full rounded-full overflow-hidden shadow-sm">
+<img alt="Gauri" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl_WqgtKL62C3Dz6NVVveO_6YkfvN-UQwgcN2NmNB-hCkXleZ8MUl_SXICka1nYISG24SsZNtVXkQ7VhCSXNq58idhZrDh2LJUV8KvraAPcJD0X-z3BKiLMBU6qosR0yZiRZ97iTnFQaXPDYWArX86gaF3SGizATW8NF4SUcq7QiY3oe_eDlnOTLmx7E3qy9SZzfdZxfLLxzFx-VoGedoooBhGjsSO3Xvw-BE78AA03mYeNf7xx1CIvbNecnnMpzChrg"/>
+</div>
+</div>
+<span class="font-headline-sm text-[14px] font-bold text-on-surface truncate w-full mt-1">Gauri</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant leading-none">Gir Cow • #02</span>
+</button>
+<button class="scan-camera-item group relative flex flex-col items-center p-2.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary hover:bg-surface-container-low transition-all active:scale-95 text-center focus:outline-none" data-animal-id="ani_01" data-animal-name="Nandi" type="button">
+<div class="relative w-16 h-16 rounded-full p-0.5 transition-all mb-1.5 group-hover:ring-2 group-hover:ring-primary">
+<div class="w-full h-full rounded-full overflow-hidden shadow-sm">
+<div class="w-full h-full bg-[#8fa998] flex items-center justify-center text-white"><span class="material-symbols-outlined text-[32px]">cruelty_free</span></div>
+</div>
+</div>
+<span class="font-headline-sm text-[14px] font-bold text-on-surface truncate w-full mt-1">Nandi</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant leading-none">Bull • #01</span>
+</button>
+<button class="scan-camera-item group relative flex flex-col items-center p-2.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary hover:bg-surface-container-low transition-all active:scale-95 text-center focus:outline-none" data-animal-id="ani_03" data-animal-name="Lakshmi" type="button">
+<div class="relative w-16 h-16 rounded-full p-0.5 transition-all mb-1.5 group-hover:ring-2 group-hover:ring-primary">
+<div class="w-full h-full rounded-full overflow-hidden shadow-sm">
+<div class="w-full h-full bg-[#8fa998] flex items-center justify-center text-white"><span class="material-symbols-outlined text-[32px]">sound_detection_dog_barking</span></div>
+</div>
+</div>
+<span class="font-headline-sm text-[14px] font-bold text-on-surface truncate w-full mt-1">Lakshmi</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant leading-none">Cow • #03</span>
+</button>
+<button class="scan-camera-item group relative flex flex-col items-center p-2.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary hover:bg-surface-container-low transition-all active:scale-95 text-center focus:outline-none" data-animal-id="ani_04" data-animal-name="Bheema" type="button">
+<div class="relative w-16 h-16 rounded-full p-0.5 transition-all mb-1.5 group-hover:ring-2 group-hover:ring-primary">
+<div class="w-full h-full rounded-full overflow-hidden shadow-sm">
+<div class="w-full h-full bg-[#8fa998] flex items-center justify-center text-white"><span class="material-symbols-outlined text-[32px]">agriculture</span></div>
+</div>
+</div>
+<span class="font-headline-sm text-[14px] font-bold text-on-surface truncate w-full mt-1">Bheema</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant leading-none">Cow • #04</span>
+</button>
+</div>
+<!-- Divider option for New / Unregistered Animal -->
+<div class="relative my-4 flex items-center justify-center">
+<div class="border-t border-outline-variant/40 w-full"></div>
+<span class="bg-surface px-3 text-label-sm font-semibold text-on-surface-variant uppercase tracking-wider shrink-0">OR</span>
+</div>
+<!-- Scan New / Unregistered Animal Action -->
+<button class="w-full p-3.5 rounded-2xl bg-surface-container-lowest border border-dashed border-primary/50 hover:border-primary hover:bg-primary-fixed/20 flex items-center justify-between gap-3 text-left transition-all group active:scale-[0.99] shadow-sm" id="scanCameraNewAnimalBtn" type="button">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary shrink-0 group-hover:scale-105 transition-transform shadow-inner">
+<span class="material-symbols-outlined text-[24px]">add_a_photo</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface">Scan New / Unregistered</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Instant live camera diagnosis without linking profile</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</button>
+<!-- Selection Notification Banner -->
+<div class="mt-3 p-3 rounded-xl bg-primary text-on-primary flex items-center justify-between animate-fadeIn hidden" id="scanCameraFeedback">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] animate-spin">refresh</span>
+<span class="font-label-md text-label-md font-semibold" id="scanCameraFeedbackText">Starting camera...</span>
+</div>
+<span class="font-label-sm bg-white/20 px-2 py-0.5 rounded-full font-bold">Ready</span>
+</div>
+</div>
+</div>
+</div>
+<!-- POPUP 2: Dedicated Modal for "Upload from Gallery" -->
+<div aria-hidden="true" aria-modal="true" class="fixed inset-0 z-50 flex items-end justify-center transition-all duration-300 pointer-events-none opacity-0 invisible" id="uploadGalleryModal" role="dialog">
+<!-- Backdrop scrim -->
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="uploadGalleryBackdrop"></div>
+<!-- Sheet Container -->
+<div class="relative w-full max-w-[430px] bg-surface rounded-t-[28px] border-t border-white/60 shadow-[0_-10px_40px_rgba(0,0,0,0.25)] flex flex-col max-h-[85vh] overflow-hidden transform transition-transform duration-300 ease-out z-10 pb-safe translate-y-full" id="uploadGalleryContentWrapper">
+<!-- Drag handle pill -->
+<div class="flex justify-center pt-3 pb-1 cursor-pointer" id="uploadGalleryDragHandle">
+<div class="w-10 h-1.5 rounded-full bg-outline-variant/60"></div>
+</div>
+<!-- Header bar -->
+<div class="flex items-center justify-between px-margin pt-2 pb-3 border-b border-outline-variant/20">
+<div class="flex flex-col">
+<span class="font-label-sm text-primary uppercase font-bold tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">photo_library</span>Gallery Upload
+        </span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Select Animal for Gallery Photo</h3>
+</div>
+<button aria-label="Close dialog" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors active:scale-95" id="uploadGalleryCloseBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Scrollable content area -->
+<div class="p-margin overflow-y-auto overscroll-contain">
+<div class="flex items-center justify-between mb-3">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Choose which animal's health record this uploaded photo belongs to:</p>
+</div>
+<!-- Animals Grid container for Gallery -->
+<div class="grid grid-cols-3 gap-3 mb-4" id="uploadGalleryGrid">
+<button class="upload-gallery-item group relative flex flex-col items-center p-2.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary hover:bg-surface-container-low transition-all active:scale-95 text-center focus:outline-none" data-animal-id="ani_02" data-animal-name="Gauri" type="button">
+<div class="relative w-16 h-16 rounded-full p-0.5 transition-all mb-1.5 group-hover:ring-2 group-hover:ring-primary">
+<div class="w-full h-full rounded-full overflow-hidden shadow-sm">
+<img alt="Gauri" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl_WqgtKL62C3Dz6NVVveO_6YkfvN-UQwgcN2NmNB-hCkXleZ8MUl_SXICka1nYISG24SsZNtVXkQ7VhCSXNq58idhZrDh2LJUV8KvraAPcJD0X-z3BKiLMBU6qosR0yZiRZ97iTnFQaXPDYWArX86gaF3SGizATW8NF4SUcq7QiY3oe_eDlnOTLmx7E3qy9SZzfdZxfLLxzFx-VoGedoooBhGjsSO3Xvw-BE78AA03mYeNf7xx1CIvbNecnnMpzChrg"/>
+</div>
+</div>
+<span class="font-headline-sm text-[14px] font-bold text-on-surface truncate w-full mt-1">Gauri</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant leading-none">Gir Cow • #02</span>
+</button>
+<button class="upload-gallery-item group relative flex flex-col items-center p-2.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary hover:bg-surface-container-low transition-all active:scale-95 text-center focus:outline-none" data-animal-id="ani_01" data-animal-name="Nandi" type="button">
+<div class="relative w-16 h-16 rounded-full p-0.5 transition-all mb-1.5 group-hover:ring-2 group-hover:ring-primary">
+<div class="w-full h-full rounded-full overflow-hidden shadow-sm">
+<div class="w-full h-full bg-[#8fa998] flex items-center justify-center text-white"><span class="material-symbols-outlined text-[32px]">cruelty_free</span></div>
+</div>
+</div>
+<span class="font-headline-sm text-[14px] font-bold text-on-surface truncate w-full mt-1">Nandi</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant leading-none">Bull • #01</span>
+</button>
+<button class="upload-gallery-item group relative flex flex-col items-center p-2.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary hover:bg-surface-container-low transition-all active:scale-95 text-center focus:outline-none" data-animal-id="ani_03" data-animal-name="Lakshmi" type="button">
+<div class="relative w-16 h-16 rounded-full p-0.5 transition-all mb-1.5 group-hover:ring-2 group-hover:ring-primary">
+<div class="w-full h-full rounded-full overflow-hidden shadow-sm">
+<div class="w-full h-full bg-[#8fa998] flex items-center justify-center text-white"><span class="material-symbols-outlined text-[32px]">sound_detection_dog_barking</span></div>
+</div>
+</div>
+<span class="font-headline-sm text-[14px] font-bold text-on-surface truncate w-full mt-1">Lakshmi</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant leading-none">Cow • #03</span>
+</button>
+<button class="upload-gallery-item group relative flex flex-col items-center p-2.5 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 hover:border-primary hover:bg-surface-container-low transition-all active:scale-95 text-center focus:outline-none" data-animal-id="ani_04" data-animal-name="Bheema" type="button">
+<div class="relative w-16 h-16 rounded-full p-0.5 transition-all mb-1.5 group-hover:ring-2 group-hover:ring-primary">
+<div class="w-full h-full rounded-full overflow-hidden shadow-sm">
+<div class="w-full h-full bg-[#8fa998] flex items-center justify-center text-white"><span class="material-symbols-outlined text-[32px]">agriculture</span></div>
+</div>
+</div>
+<span class="font-headline-sm text-[14px] font-bold text-on-surface truncate w-full mt-1">Bheema</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant leading-none">Cow • #04</span>
+</button>
+</div>
+<!-- Divider option for Unregistered Gallery Upload -->
+<div class="relative my-4 flex items-center justify-center">
+<div class="border-t border-outline-variant/40 w-full"></div>
+<span class="bg-surface px-3 text-label-sm font-semibold text-on-surface-variant uppercase tracking-wider shrink-0">OR</span>
+</div>
+<!-- Upload for New / Unregistered Animal Action -->
+<button class="w-full p-3.5 rounded-2xl bg-surface-container-lowest border border-dashed border-primary/50 hover:border-primary hover:bg-primary-fixed/20 flex items-center justify-between gap-3 text-left transition-all group active:scale-[0.99] shadow-sm" id="uploadGalleryNewAnimalBtn" type="button">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary shrink-0 group-hover:scale-105 transition-transform shadow-inner">
+<span class="material-symbols-outlined text-[24px]">drive_folder_upload</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface">Upload for New / Unregistered</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Direct image diagnosis without saving to livestock profile</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</button>
+<!-- Selection Notification Banner -->
+<div class="mt-3 p-3 rounded-xl bg-primary text-on-primary flex items-center justify-between animate-fadeIn hidden" id="uploadGalleryFeedback">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] animate-spin">refresh</span>
+<span class="font-label-md text-label-md font-semibold" id="uploadGalleryFeedbackText">Opening photo picker...</span>
+</div>
+<span class="font-label-sm bg-white/20 px-2 py-0.5 rounded-full font-bold">Ready</span>
+</div>
+</div>
+</div>
+</div>
+<nav class="fixed bottom-3 inset-x-4 max-w-[390px] mx-auto z-40 pb-safe select-none pointer-events-auto" id="liquidDockContainer">
+<!-- Ultra-Premium Liquid Glass Dock Shell -->
+<div class="relative w-full rounded-full p-1.5 transition-all duration-300" id="liquidGlassDock" style="background: rgba(255, 255, 255, 0.72); backdrop-filter: blur(28px) saturate(190%); border: 1px solid rgba(255, 255, 255, 0.85); box-shadow: rgba(19, 78, 63, 0.16) 0px 16px 36px -4px, rgba(0, 0, 0, 0.04) 0px 4px 12px 0px, rgba(255, 255, 255, 0.95) 0px 1.5px 1.5px 0px inset, rgba(19, 78, 63, 0.08) 0px -1px 2px 0px inset; --pointer-x: 297px; --pointer-y: 14.91668701171875px;">
+<!-- Top Rim Specular Liquid Highlight -->
+<div class="absolute inset-x-4 top-0 h-[1.5px] rounded-full bg-gradient-to-r from-transparent via-white to-transparent opacity-95 pointer-events-none"></div>
+<!-- Interactive Refraction Specular Light following pointer -->
+<div class="absolute inset-0 rounded-full pointer-events-none transition-opacity duration-300 opacity-60" id="dockSpecularGlow" style="background: radial-gradient(circle 90px at var(--pointer-x) var(--pointer-y), rgba(255, 255, 255, 0.85), rgba(181, 239, 218, 0.25) 45%, transparent 75%); opacity: 0.5;"></div>
+<!-- Gliding Liquid Active Pill Morph Capsule -->
+<div class="absolute top-1.5 bottom-1.5 rounded-full pointer-events-none z-0 transition-[transform,width] ease-[cubic-bezier(0.34,1.56,0.64,1)] duration-400" id="liquidActivePill" style="left: 0px; width: 115px; background: linear-gradient(135deg, rgba(19, 78, 63, 0.14) 0%, rgba(181, 239, 218, 0.42) 100%); border: 1px solid rgba(255, 255, 255, 0.95); box-shadow: rgba(19, 78, 63, 0.12) 0px 4px 16px, rgba(255, 255, 255, 0.95) 0px 1px 2px inset, rgba(19, 78, 63, 0.05) 0px -1px 2px inset; transform: translateX(0px) scaleX(1);"></div>
+<!-- Items Grid -->
+<div class="relative z-10 grid grid-cols-3 items-center">
+<!-- Home Tab -->
+<a aria-current="page" class="dock-item group relative flex flex-col items-center justify-center h-13 py-1.5 rounded-full cursor-pointer transition-transform duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)] text-primary font-bold active" data-index="0" data-path="home" href="#" style="transform: scale(1) translateY(0px);">
+<div class="dock-icon-wrapper relative flex items-center justify-center transition-transform duration-200" style="transform: scale(1);">
+<span class="material-symbols-outlined text-[28px] transition-all duration-200 group-hover:scale-110 drop-shadow-[0_1px_2px_rgba(0,0,0,0.06)] scale-110" style='font-variation-settings: "FILL" 1;'>home</span>
+</div>
+<span class="dock-label font-label-sm text-[11px] leading-tight mt-0.5 tracking-tight transition-colors">Home</span>
+</a>
+<!-- Marketplace Tab -->
+<a class="dock-item group relative flex flex-col items-center justify-center h-13 py-1.5 rounded-full cursor-pointer transition-transform duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)] text-on-surface-variant hover:text-primary" data-index="1" data-path="marketplace" href="#" style="transform: scale(1) translateY(0px);">
+<div class="dock-icon-wrapper relative flex items-center justify-center transition-transform duration-200">
+<span class="material-symbols-outlined text-[24px] transition-all duration-200 group-hover:scale-110" style='font-variation-settings: "FILL" 0;'>storefront</span>
+</div>
+<span class="dock-label font-label-sm text-[11px] leading-tight mt-0.5 tracking-tight transition-colors">Marketplace</span>
+</a>
+<!-- Farmer Profile Tab -->
+<a class="dock-item group relative flex flex-col items-center justify-center h-13 py-1.5 rounded-full cursor-pointer transition-transform duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)] text-on-surface-variant hover:text-primary" data-index="2" data-path="farmer-profile" href="#" style="transform: scale(1) translateY(0px);">
+<div class="dock-icon-wrapper relative flex items-center justify-center transition-transform duration-200">
+<span class="material-symbols-outlined text-[24px] transition-all duration-200 group-hover:scale-110" style='font-variation-settings: "FILL" 0;'>account_circle</span>
+</div>
+<span class="dock-label font-label-sm text-[11px] leading-tight mt-0.5 tracking-tight transition-colors">Farmer Profile</span>
+</a>
+</div>
+</div>
+</nav>
+<script>
+  // Shared Livestock Data Model
+  const registeredLivestock = [
+    {
+      id: "ani_02",
+      name: "Gauri",
+      breed: "Gir Cow",
+      tag: "#02",
+      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDl_WqgtKL62C3Dz6NVVveO_6YkfvN-UQwgcN2NmNB-hCkXleZ8MUl_SXICka1nYISG24SsZNtVXkQ7VhCSXNq58idhZrDh2LJUV8KvraAPcJD0X-z3BKiLMBU6qosR0yZiRZ97iTnFQaXPDYWArX86gaF3SGizATW8NF4SUcq7QiY3oe_eDlnOTLmx7E3qy9SZzfdZxfLLxzFx-VoGedoooBhGjsSO3Xvw-BE78AA03mYeNf7xx1CIvbNecnnMpzChrg"
+    },
+    {
+      id: "ani_01",
+      name: "Nandi",
+      breed: "Bull",
+      tag: "#01",
+      icon: "cruelty_free"
+    },
+    {
+      id: "ani_03",
+      name: "Lakshmi",
+      breed: "Cow",
+      tag: "#03",
+      icon: "sound_detection_dog_barking"
+    },
+    {
+      id: "ani_04",
+      name: "Bheema",
+      breed: "Cow",
+      tag: "#04",
+      icon: "agriculture"
+    }
+  ];
+
+  /* -------------------------------------------------------------
+     POPUP 1: Dedicated Modal Logic for "Scan Animal Now" (Camera)
+     ------------------------------------------------------------- */
+  const scanCameraModal = document.getElementById('scanCameraModal');
+  const scanCameraBackdrop = document.getElementById('scanCameraBackdrop');
+  const scanCameraWrapper = document.getElementById('scanCameraContentWrapper');
+  const scanAnimalNowBtn = document.getElementById('scanAnimalNowBtn');
+  const scanCameraCloseBtn = document.getElementById('scanCameraCloseBtn');
+  const scanCameraDragHandle = document.getElementById('scanCameraDragHandle');
+  const scanCameraNewAnimalBtn = document.getElementById('scanCameraNewAnimalBtn');
+  const scanCameraFeedback = document.getElementById('scanCameraFeedback');
+  const scanCameraFeedbackText = document.getElementById('scanCameraFeedbackText');
+
+  function openScanCameraModal() {
+    if (!scanCameraModal) return;
+    if (scanCameraFeedback) scanCameraFeedback.classList.add('hidden');
+    scanCameraModal.classList.remove('invisible', 'pointer-events-none');
+    scanCameraModal.classList.add('pointer-events-auto');
+    scanCameraModal.setAttribute('aria-hidden', 'false');
+    
+    requestAnimationFrame(() => {
+      scanCameraModal.classList.remove('opacity-0');
+      scanCameraModal.classList.add('opacity-100');
+      scanCameraBackdrop.classList.remove('opacity-0');
+      scanCameraBackdrop.classList.add('opacity-100');
+      scanCameraWrapper.classList.remove('translate-y-full');
+      scanCameraWrapper.classList.add('translate-y-0');
+    });
+  }
+
+  function closeScanCameraModal() {
+    if (!scanCameraModal) return;
+    scanCameraWrapper.classList.remove('translate-y-0');
+    scanCameraWrapper.classList.add('translate-y-full');
+    scanCameraBackdrop.classList.remove('opacity-100');
+    scanCameraBackdrop.classList.add('opacity-0');
+    scanCameraModal.classList.remove('opacity-100');
+    scanCameraModal.classList.add('opacity-0');
+
+    setTimeout(() => {
+      scanCameraModal.classList.add('invisible', 'pointer-events-none');
+      scanCameraModal.classList.remove('pointer-events-auto');
+      scanCameraModal.setAttribute('aria-hidden', 'true');
+    }, 300);
+  }
+
+  function triggerScanCameraAction(msg) {
+    if (scanCameraFeedback && scanCameraFeedbackText) {
+      scanCameraFeedbackText.textContent = msg;
+      scanCameraFeedback.classList.remove('hidden');
+      setTimeout(() => {
+        closeScanCameraModal();
+      }, 900);
+    }
+  }
+
+  if (scanAnimalNowBtn) {
+    scanAnimalNowBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openScanCameraModal();
+    });
+  }
+  if (scanCameraCloseBtn) scanCameraCloseBtn.addEventListener('click', closeScanCameraModal);
+  if (scanCameraBackdrop) scanCameraBackdrop.addEventListener('click', closeScanCameraModal);
+  if (scanCameraDragHandle) scanCameraDragHandle.addEventListener('click', closeScanCameraModal);
+
+  if (scanCameraNewAnimalBtn) {
+    scanCameraNewAnimalBtn.addEventListener('click', () => {
+      triggerScanCameraAction("Starting camera for New / Unregistered Animal...");
+    });
+  }
+
+  // Camera items click handlers
+  document.querySelectorAll('.scan-camera-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const name = btn.dataset.animalName;
+      document.querySelectorAll('.scan-camera-item').forEach(b => {
+        b.classList.remove('ring-2', 'ring-primary', 'bg-primary-fixed/20', 'border-primary');
+      });
+      btn.classList.add('ring-2', 'ring-primary', 'bg-primary-fixed/20', 'border-primary');
+      triggerScanCameraAction(`Starting camera scanner for ${name}...`);
+    });
+  });
+
+  /* -------------------------------------------------------------
+     POPUP 2: Dedicated Modal Logic for "Upload from Gallery"
+     ------------------------------------------------------------- */
+  const uploadGalleryModal = document.getElementById('uploadGalleryModal');
+  const uploadGalleryBackdrop = document.getElementById('uploadGalleryBackdrop');
+  const uploadGalleryWrapper = document.getElementById('uploadGalleryContentWrapper');
+  const uploadFromGalleryBtn = document.getElementById('uploadFromGalleryBtn');
+  const uploadGalleryCloseBtn = document.getElementById('uploadGalleryCloseBtn');
+  const uploadGalleryDragHandle = document.getElementById('uploadGalleryDragHandle');
+  const uploadGalleryNewAnimalBtn = document.getElementById('uploadGalleryNewAnimalBtn');
+  const uploadGalleryFeedback = document.getElementById('uploadGalleryFeedback');
+  const uploadGalleryFeedbackText = document.getElementById('uploadGalleryFeedbackText');
+
+  function openUploadGalleryModal() {
+    if (!uploadGalleryModal) return;
+    if (uploadGalleryFeedback) uploadGalleryFeedback.classList.add('hidden');
+    uploadGalleryModal.classList.remove('invisible', 'pointer-events-none');
+    uploadGalleryModal.classList.add('pointer-events-auto');
+    uploadGalleryModal.setAttribute('aria-hidden', 'false');
+
+    requestAnimationFrame(() => {
+      uploadGalleryModal.classList.remove('opacity-0');
+      uploadGalleryModal.classList.add('opacity-100');
+      uploadGalleryBackdrop.classList.remove('opacity-0');
+      uploadGalleryBackdrop.classList.add('opacity-100');
+      uploadGalleryWrapper.classList.remove('translate-y-full');
+      uploadGalleryWrapper.classList.add('translate-y-0');
+    });
+  }
+
+  function closeUploadGalleryModal() {
+    if (!uploadGalleryModal) return;
+    uploadGalleryWrapper.classList.remove('translate-y-0');
+    uploadGalleryWrapper.classList.add('translate-y-full');
+    uploadGalleryBackdrop.classList.remove('opacity-100');
+    uploadGalleryBackdrop.classList.add('opacity-0');
+    uploadGalleryModal.classList.remove('opacity-100');
+    uploadGalleryModal.classList.add('opacity-0');
+
+    setTimeout(() => {
+      uploadGalleryModal.classList.add('invisible', 'pointer-events-none');
+      uploadGalleryModal.classList.remove('pointer-events-auto');
+      uploadGalleryModal.setAttribute('aria-hidden', 'true');
+    }, 300);
+  }
+
+  function triggerUploadGalleryAction(msg) {
+    if (uploadGalleryFeedback && uploadGalleryFeedbackText) {
+      uploadGalleryFeedbackText.textContent = msg;
+      uploadGalleryFeedback.classList.remove('hidden');
+      setTimeout(() => {
+        closeUploadGalleryModal();
+      }, 900);
+    }
+  }
+
+  if (uploadFromGalleryBtn) {
+    uploadFromGalleryBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openUploadGalleryModal();
+    });
+  }
+  if (uploadGalleryCloseBtn) uploadGalleryCloseBtn.addEventListener('click', closeUploadGalleryModal);
+  if (uploadGalleryBackdrop) uploadGalleryBackdrop.addEventListener('click', closeUploadGalleryModal);
+  if (uploadGalleryDragHandle) uploadGalleryDragHandle.addEventListener('click', closeUploadGalleryModal);
+
+  if (uploadGalleryNewAnimalBtn) {
+    uploadGalleryNewAnimalBtn.addEventListener('click', () => {
+      triggerUploadGalleryAction("Opening photo library for New / Unregistered Animal...");
+    });
+  }
+
+  // Gallery items click handlers
+  document.querySelectorAll('.upload-gallery-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const name = btn.dataset.animalName;
+      document.querySelectorAll('.upload-gallery-item').forEach(b => {
+        b.classList.remove('ring-2', 'ring-primary', 'bg-primary-fixed/20', 'border-primary');
+      });
+      btn.classList.add('ring-2', 'ring-primary', 'bg-primary-fixed/20', 'border-primary');
+      triggerUploadGalleryAction(`Selecting gallery image for ${name}...`);
+    });
+  });
+
+  // Global ESC key listener to close whichever modal is active
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (scanCameraModal && !scanCameraModal.classList.contains('invisible')) {
+        closeScanCameraModal();
+      }
+      if (uploadGalleryModal && !uploadGalleryModal.classList.contains('invisible')) {
+        closeUploadGalleryModal();
+      }
+    }
+  });
+</script>
+<script>
+  (function initLiquidDock() {
+    const dockContainer = document.getElementById('liquidDockContainer');
+    const dock = document.getElementById('liquidGlassDock');
+    const pill = document.getElementById('liquidActivePill');
+    const items = Array.from(dock.querySelectorAll('.dock-item'));
+    const glow = document.getElementById('dockSpecularGlow');
+    
+    let activeIndex = 0;
+    let isTracking = false;
+
+    function updatePillPosition(index, stretch = 1) {
+      if (!items[index] || !pill) return;
+      const targetItem = items[index];
+      const left = targetItem.offsetLeft;
+      const width = targetItem.offsetWidth;
+      pill.style.width = `${width}px`;
+      pill.style.transform = `translateX(${left}px) scaleX(${stretch})`;
+    }
+
+    function setActiveTab(index) {
+      activeIndex = index;
+      items.forEach((item, idx) => {
+        const icon = item.querySelector('.material-symbols-outlined');
+        const isActive = idx === index;
+        if (isActive) {
+          item.classList.add('text-primary', 'font-bold');
+          item.classList.remove('text-on-surface-variant');
+          item.setAttribute('aria-current', 'page');
+          if (icon) icon.style.fontVariationSettings = "'FILL' 1";
+        } else {
+          item.classList.remove('text-primary', 'font-bold');
+          item.classList.add('text-on-surface-variant');
+          item.removeAttribute('aria-current');
+          if (icon) icon.style.fontVariationSettings = "'FILL' 0";
+        }
+      });
+      updatePillPosition(index, 1);
+    }
+
+    // Initialize pill position
+    window.addEventListener('DOMContentLoaded', () => updatePillPosition(activeIndex));
+    window.addEventListener('resize', () => updatePillPosition(activeIndex));
+    setTimeout(() => updatePillPosition(activeIndex), 50);
+
+    // Physics proximity & magnification calculation
+    function applyDockMagnification(clientX, clientY) {
+      const rect = dock.getBoundingClientRect();
+      const relativeX = clientX - rect.left;
+      const relativeY = clientY - rect.top;
+
+      // Update specular refraction coordinates
+      dock.style.setProperty('--pointer-x', `${Math.max(0, Math.min(rect.width, relativeX))}px`);
+      dock.style.setProperty('--pointer-y', `${Math.max(0, Math.min(rect.height, relativeY))}px`);
+      if (glow) glow.style.opacity = '0.9';
+
+      items.forEach((item, idx) => {
+        const itemRect = item.getBoundingClientRect();
+        const itemCenterX = itemRect.left + itemRect.width / 2;
+        const dist = Math.abs(clientX - itemCenterX);
+        const maxDist = 120; // proximity influence radius
+
+        if (dist < maxDist) {
+          // Dynamic bell curve scaling
+          const factor = 1 - dist / maxDist;
+          const scale = 1 + 0.22 * Math.pow(factor, 1.4);
+          const translateY = -4 * factor;
+          item.style.transform = `scale(${scale.toFixed(3)}) translateY(${translateY.toFixed(1)}px)`;
+        } else {
+          item.style.transform = 'scale(1) translateY(0px)';
+        }
+      });
+    }
+
+    function resetDockMagnification() {
+      items.forEach(item => {
+        item.style.transform = 'scale(1) translateY(0px)';
+      });
+      if (glow) glow.style.opacity = '0.5';
+      updatePillPosition(activeIndex, 1);
+    }
+
+    // Pointer & Drag handling
+    dock.addEventListener('pointerenter', (e) => {
+      isTracking = true;
+      applyDockMagnification(e.clientX, e.clientY);
+    });
+
+    dock.addEventListener('pointermove', (e) => {
+      isTracking = true;
+      applyDockMagnification(e.clientX, e.clientY);
+    });
+
+    dock.addEventListener('pointerleave', () => {
+      isTracking = false;
+      resetDockMagnification();
+    });
+
+    // Touch support for dragging smoothly across the pill dock
+    dock.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches[0]) {
+        const touch = e.touches[0];
+        applyDockMagnification(touch.clientX, touch.clientY);
+      }
+    }, { passive: true });
+
+    dock.addEventListener('touchend', () => {
+      resetDockMagnification();
+    });
+
+    // Item click / tap handling with elastic ripple feedback
+    items.forEach((item, index) => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Elastic pill morph stretch effect
+        const stretchDirection = index > activeIndex ? 1.15 : (index < activeIndex ? 1.15 : 1.05);
+        updatePillPosition(index, stretchDirection);
+        setTimeout(() => updatePillPosition(index, 1), 160);
+
+        setActiveTab(index);
+
+        // Haptic-like visual pulse
+        const iconWrapper = item.querySelector('.dock-icon-wrapper');
+        if (iconWrapper) {
+          iconWrapper.style.transform = 'scale(0.82)';
+          setTimeout(() => {
+            iconWrapper.style.transform = 'scale(1.22)';
+            setTimeout(() => {
+              iconWrapper.style.transform = 'scale(1)';
+            }, 180);
+          }, 80);
+        }
+      });
+    });
+  })();
+</script>
+</body></html>

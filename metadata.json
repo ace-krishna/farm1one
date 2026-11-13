@@ -1,0 +1,6 @@
+{
+  "name": "FarmOne - Mobile & Expo Preview",
+  "description": "Smart agriculture and farm management app with interactive Expo Go preview, multi-language support (English, Hindi, Marathi), fluid animations, and device framing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
