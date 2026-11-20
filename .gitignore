@@ -6,3 +6,9 @@ coverage/
 *.log
 .env*
 !.env.example
+
+.aistudio/
+.vscode/
+node_modules/.vite/
+*.pem
+*.key

@@ -1,0 +1,198 @@
+---
+name: Pasture Pill Agrarian
+colors:
+  surface: '#f6fbf6'
+  surface-dim: '#d6dbd7'
+  surface-bright: '#f6fbf6'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#f0f5f0'
+  surface-container: '#eaefea'
+  surface-container-high: '#e4e9e5'
+  surface-container-highest: '#dfe4df'
+  on-surface: '#171d1a'
+  on-surface-variant: '#3e4944'
+  inverse-surface: '#2c322f'
+  inverse-on-surface: '#edf2ed'
+  outline: '#6e7a73'
+  outline-variant: '#bdc9c2'
+  surface-tint: '#006c52'
+  primary: '#00694f'
+  on-primary: '#ffffff'
+  primary-container: '#008565'
+  on-primary-container: '#f5fff8'
+  inverse-primary: '#71d9b4'
+  secondary: '#40665a'
+  on-secondary: '#ffffff'
+  secondary-container: '#bde6d7'
+  on-secondary-container: '#43685c'
+  tertiary: '#006577'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#2b7e91'
+  on-tertiary-container: '#f9fdff'
+  error: '#ba1a1a'
+  on-error: '#ffffff'
+  error-container: '#ffdad6'
+  on-error-container: '#93000a'
+  primary-fixed: '#8ef6d0'
+  primary-fixed-dim: '#71d9b4'
+  on-primary-fixed: '#002117'
+  on-primary-fixed-variant: '#00513d'
+  secondary-fixed: '#c2ebdc'
+  secondary-fixed-dim: '#a7cfc1'
+  on-secondary-fixed: '#002019'
+  on-secondary-fixed-variant: '#284e43'
+  tertiary-fixed: '#acedff'
+  tertiary-fixed-dim: '#85d2e6'
+  on-tertiary-fixed: '#001f26'
+  on-tertiary-fixed-variant: '#004e5c'
+  background: '#f6fbf6'
+  on-background: '#171d1a'
+  surface-variant: '#dfe4df'
+typography:
+  headline-xl:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 28px
+    fontWeight: '700'
+    lineHeight: 34px
+  headline-lg:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 22px
+    fontWeight: '700'
+    lineHeight: 28px
+  headline-md:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 18px
+    fontWeight: '600'
+    lineHeight: 24px
+  headline-sm:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 16px
+    fontWeight: '600'
+    lineHeight: 22px
+  body-lg:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 15px
+    fontWeight: '500'
+    lineHeight: 22px
+  body-md:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 13px
+    fontWeight: '400'
+    lineHeight: 18px
+  body-sm:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 12px
+    fontWeight: '400'
+    lineHeight: 16px
+  label-lg:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 13px
+    fontWeight: '700'
+    lineHeight: 16px
+    letterSpacing: 0.02em
+  label-md:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 11px
+    fontWeight: '700'
+    lineHeight: 14px
+    letterSpacing: 0.04em
+  label-sm:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 10px
+    fontWeight: '600'
+    lineHeight: 12px
+    letterSpacing: 0.05em
+rounded:
+  sm: 0.5rem
+  DEFAULT: 1rem
+  md: 1.5rem
+  lg: 2rem
+  xl: 3rem
+  full: 9999px
+spacing:
+  gutter: 0.75rem
+  margin: 1rem
+  space-xs: 0.25rem
+  space-sm: 0.5rem
+  space-md: 0.75rem
+  space-lg: 1rem
+  space-xl: 1.5rem
+---
+
+## Brand & Style
+
+This design system is engineered for modern agricultural workflows, livestock management, and rural field operations. The brand personality balances biological warmth, grounded pragmatism, and crisp contemporary utility. It serves farmers, veterinarians, herd managers, and cooperative administrators who operate in diverse outdoor conditions—from high-glare sunlight to one-handed field mobile usage.
+
+The design movement combines **Organic Minimalism** with **Sleek Pill Geometry**. Rather than adopting sterile enterprise software cliches or over-stylized neon palettes, the visual philosophy draws directly from pastoral earthiness: muted pine, eucalyptus, clay tones, and unbleached milk whites. Visual warmth is anchored through tactile, fully rounded pill containers, deep soft card radiuses, and high-readability typography. Micro-interactions rely on gentle physical spring dynamics (mass: 0.8, damping: 14) that make digital tracking feel as dependable and tangible as physical tools.
+
+## Colors
+
+The color palette is calibrated for natural outdoor ambient clarity and high-contrast legible hierarchy:
+
+- **Primary (`#259776` — Vibrant Agrarian Green):** The commanding focal tone used for hero cards, brand headers, active pill tabs, filled primary action buttons, and dominant data indicators. It conveys longevity, biological health, and dependability.
+- **Secondary (`#BCE5D6` — Mint Sage Accent):** A soft, rejuvenating green used for secondary icon backgrounds, status indicators, subtle active tab fills, and badge backdrops. It offers a soothing counterpart to the primary green without creating visual noise.
+- **Tertiary (`#5DAABE` — Steel Blue Accent):** A cool, crisp aquatic accent used for secondary alert tiles, analytical metric callouts, and water/irrigation status indicators.
+- **Neutral (`#F5F7F5` — Soft Agrarian Tint):** The ambient canvas background, providing gentle organic warmth compared to stark cool grays, reducing eye fatigue during long sessions in daylight.
+- **Surface Crisp (`#FFFFFF`):** High-clarity elevated containers and floating modal sheets, separated from the neutral canvas through subtle perimeter borders rather than heavy drop shadows.
+- **Text & Stroke Palette:** 
+  - Text Primary: `#1F2937` (Deep slate for maximum sunlight contrast).
+  - Text Muted: `#6B7280` (Medium neutral for IDs, subtitles, and metadata).
+  - Border/Stroke: `#E5E9E4` (Muted vegetal chalk border for crisp definition on organic cards).
+
+## Typography
+
+The design system exclusively employs **Plus Jakarta Sans** across all typography levels. Its clean geometric underpinnings and friendly rounded terminals mirror the pill-shaped UI components, ensuring seamless cohesion between text and interactive surfaces.
+
+- **Headlines:** Displayed in weights `600` and `700`. The bold letterforms maintain legibility across field glare conditions while retaining open counters for easy scanning.
+- **Body:** Styled in weights `400` and `500` with generous line-height ratios (1.35–1.45x) to prevent dense clumps of text when presenting agricultural metrics, tag IDs, or diagnostic steps.
+- **Labels & Micro-copy:** Uppercase and compact pill labels make use of `label-md` and `label-sm` with letter spacing between `0.02em` and `0.05em` to differentiate functional metadata (such as category tags or registration steps) from conversational copy.
+
+## Layout & Spacing
+
+Layouts in this design system follow a single-column, touch-optimized fluid layout model anchored to standard mobile viewport boundaries (360px to 428px wide).
+
+- **Margins & Safe Zones:** A steady `1rem` (16px) outer margin frames the viewport on handheld devices, ensuring touch targets remain clear of bezel palm contact.
+- **Vertical Spacing Rhythm:** Sections cascade with standard vertical gaps of `1.5rem` (`space-xl`), while clustered elements within cards use `space-xs` (4px) to `space-md` (12px).
+- **Horizontal Flow Grids:** Livestock carousels, action badges, and status pills utilize horizontal scrolling list containers with `gutter` spacing of `0.75rem` (12px) and content edge clipping aligned to the screen margin.
+- **Responsive Adaptations:** When expanded to tablets or foldable displays, cards avoid unbounded horizontal stretching by adopting a 2-to-3 column grid with a max container width of 640px for single-sheet operations.
+
+## Elevation & Depth
+
+Visual hierarchy relies on **Tonal Layering** paired with **Low-Contrast Organic Outlines** rather than harsh, artificial dark shadows:
+
+1. **Base Surface (Level 0):** The soft canvas background (`#F5F7F5`) acts as the natural unraised plane.
+2. **Elevated Card Surface (Level 1):** White containers (`#FFFFFF`) rest on the base plane, defined by a 1px perimeter border (`#E5E9E4`) and an ultra-diffused, ambient shadow (`box-shadow: 0 4px 20px -2px rgba(37, 151, 118, 0.04)`).
+3. **Hero & Diagnostic Containers (Level 2):** Feature vibrant agrarian green solid fills (`#259776`) or subtle vertical gradients, establishing an immediate focal hierarchy for high-priority actions like AI scanning.
+4. **Modal Bottom Sheets & Overlays (Level 3):** Sheets elevate above dim ambient backdrops (`rgba(31, 41, 55, 0.45)`) featuring crisp top rounding (`28px`), a signature pill drag indicator, and soft upper ambient containment (`box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.08)`).
+
+## Shapes
+
+The design system embraces a **Pill-Centric (`roundedness: 3`)** shape language:
+
+- **Fully Rounded Elements (`9999px` / `rounded-full`):** Action buttons, tag filters, language switchers, quick-action chips, drag handles, and navigation pills all use stadium/pill silhouettes.
+- **Avatar & Icon Enclosures:** Icon buttons and animal profile avatars sit within pure circular enclosures (`border-radius: 50%`) enclosed with a 1px border or muted sage highlight.
+- **Cards & Surfaces (`rounded-2xl` to `rounded-3xl` / `16px` to `24px`):** Large surface cards, hero diagnostic blocks, and modal bottom sheets utilize soft 20px–28px corner radii, evoking an inviting, accessible form factor.
+
+## Components
+
+### Buttons & Call-to-Actions (CTAs)
+- **Primary Pill CTA:** Vibrant agrarian green fill (`#259776`) with crisp white text (`#FFFFFF`) or inverse white pill with dark text on hero cards. Roundedness is `9999px` (pill), height is `48px`, accompanied by trailing directional arrow icons (`→`).
+- **Secondary / Action Badges:** Pill outlines or filled soft sage tones (`#BCE5D6`) with primary dark text. On press, scales to `0.97` with spring feedback.
+
+### Multi-Tier Pill Segmented Controls (Language & Status Switchers)
+- Encapsulated within a subtle container pill (`background: #EAEFEA`, padding: `3px`).
+- The active state is an elevated solid pill (`background: #259776`, text: `#FFFFFF`, shadow: `0 2px 6px rgba(0,0,0,0.1)`).
+- Inactive items remain muted slate (`#6B7280`) with smooth sliding pill transition on toggle.
+
+### Livestock Avatar Containers
+- Circular icon avatars (`60px × 60px` or `48px × 48px`) surrounded by a subtle border (`#E5E9E4`).
+- Support photographic animal portraits, agricultural line icons (tractors, cattle, tools), or state badges (e.g. `+` icon for registration).
+- Include centered text below: animal name in `headline-sm` with subtext denoting breed and ID tag (e.g. `Cow • #03`) in `body-sm`.
+
+### Bottom Sheets
+- Rounded top corners at `28px` on crisp white `#FFFFFF`.
+- Header houses a centered neutral drag pill (`width: 36px`, `height: 4px`, `background: #D1D5DB`, `border-radius: 9999px`).
+- Features inline dismiss button (`X` icon in a circular pill) positioned top-right, followed by grid selection cards for livestock diagnosis.
+
+### Selection Cards & Animal Tiles
+- Square/compact cards (`rounded-2xl`, 16px radius) featuring unselected borders (`1px solid #E5E9E4`) and active selection state denoted by a deep green perimeter (`2px solid #259776`).

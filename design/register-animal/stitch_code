@@ -1,0 +1,744 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Register Animal - Livestock Manager</title>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Font: Plus Jakarta Sans -->
+<link href="https://fonts.preconnect.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Phosphor Icons for crisp outdoor mobile iconography -->
+<script src="https://unpkg.com/@phosphor-icons/web"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/thin/style.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/light/style.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/duotone/style.css"><link href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" rel="stylesheet" type="text/css"><link href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/thin/style.css" rel="stylesheet" type="text/css"><link href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/light/style.css" rel="stylesheet" type="text/css"><link href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" rel="stylesheet" type="text/css"><link href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" rel="stylesheet" type="text/css"><link href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/duotone/style.css" rel="stylesheet" type="text/css"><link href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" rel="stylesheet" type="text/css"><link href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/thin/style.css" rel="stylesheet" type="text/css"><link href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/light/style.css" rel="stylesheet" type="text/css"><link href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" rel="stylesheet" type="text/css"><link href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" rel="stylesheet" type="text/css"><link href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/duotone/style.css" rel="stylesheet" type="text/css">
+<!-- Tailwind Config -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              DEFAULT: '#1b4d3e',
+              50: '#f0f7f4',
+              100: '#dceee7',
+              600: '#164234',
+              700: '#11352a',
+            },
+            sage: {
+              surface: '#f4f7f4',
+              mint: '#cbe7dd',
+              border: '#dbe5df'
+            },
+            charcoal: '#191c1b'
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          borderRadius: {
+            'pill': '9999px',
+            '3xl': '1.75rem',
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styling -->
+<style data-purpose="custom-typography-and-effects">
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Subtle touch active states */
+    .touch-press:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
+
+    /* iOS safe-area padding helpers */
+    .safe-top {
+      padding-top: env(safe-area-inset-top, 12px);
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+
+    /* Custom radio styling for color swatches */
+    .swatch-input:checked + .swatch-indicator {
+      box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #1b4d3e;
+      transform: scale(1.08);
+    }
+    .swatch-input:checked + .swatch-indicator .check-icon {
+      opacity: 1 !important;
+    }
+  </style>
+<!-- END: Custom Styling -->
+</head>
+<body class="bg-[#f0f4f1] text-[#191c1b] min-h-screen flex justify-center selection:bg-emerald-200">
+<!-- Mobile Screen Container -->
+<div class="w-full max-w-md bg-[#f7f9f7] min-h-screen flex flex-col shadow-2xl relative border-x border-[#e3ebe5] overflow-x-hidden">
+<!-- BEGIN: TopNavigationBar -->
+<header class="sticky top-0 z-30 bg-[#f7f9f7]/95 backdrop-blur-md px-5 pt-3 pb-3 border-b border-[#e2ece5] safe-top" data-purpose="top-navigation"><div class="relative flex items-center justify-between min-h-[40px]"><button aria-label="Go back" class="w-10 h-10 rounded-full bg-white border border-[#dde6e0] flex items-center justify-center text-[#191c1b] shadow-sm touch-press hover:bg-gray-50 z-10" type="button"><i class="ph-bold ph-arrow-left text-lg"></i></button><div class="absolute inset-0 flex items-center justify-center pointer-events-none"><h1 class="text-base font-bold tracking-tight text-[#11352a]">Register Animal</h1></div><div class="flex items-center gap-1.5 z-10"><button aria-label="Close" class="w-10 h-10 rounded-full bg-white border border-[#dde6e0] flex items-center justify-center text-gray-500 shadow-sm touch-press hover:bg-gray-50" type="button"><i class="ph-bold ph-x text-lg"></i></button></div></div></header>
+<!-- END: TopNavigationBar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 px-4 pt-4 pb-28 space-y-4" data-purpose="registration-form">
+<!-- BEGIN: PrimaryInputsSection (Sketch: name & ear tag number) -->
+<section aria-label="Primary Details" class="space-y-3">
+<!-- Name Field -->
+<div class="bg-white rounded-2xl p-3.5 border border-[#e1eae3] shadow-sm focus-within:border-[#1b4d3e] focus-within:ring-1 focus-within:ring-[#1b4d3e] transition-all" data-purpose="name-input-group">
+<div class="flex items-center justify-between mb-1">
+<label class="text-xs font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1.5" for="animal-name">
+<i class="ph-fill ph-tag text-xs text-[#1b4d3e]" style="color: rgb(11, 143, 92);"></i> Name / Nickname
+            </label>
+<span class="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full" style="color: rgb(6, 95, 62); background-color: rgb(230, 247, 240);">Required</span>
+</div>
+<input class="w-full text-base font-bold text-[#191c1b] placeholder-gray-400 border-0 p-0 focus:ring-0 bg-transparent" id="animal-name" name="animal-name" placeholder="e.g., Gauri, Nandi, Daisy" type="text" value="Gauri">
+</div>
+<!-- Ear Tag Field with Quick Scan Action -->
+<div class="bg-white rounded-2xl p-3.5 border border-[#e1eae3] shadow-sm focus-within:border-[#1b4d3e] focus-within:ring-1 focus-within:ring-[#1b4d3e] transition-all" data-purpose="ear-tag-input-group">
+<div class="flex items-center justify-between mb-1">
+<label class="text-xs font-bold uppercase tracking-wider text-gray-500 flex items-center gap-1.5" for="tag-number">
+<i class="ph-fill ph-barcode text-xs text-[#1b4d3e]" style="color: rgb(11, 143, 92);"></i> Ear Tag Number
+            </label>
+<span class="text-[11px] font-medium text-gray-400">Optional</span>
+</div>
+<div class="flex items-center justify-between gap-2">
+<input class="w-full text-sm font-semibold tracking-wide text-[#191c1b] placeholder-gray-400 border-0 p-0 focus:ring-0 bg-transparent uppercase" id="tag-number" name="tag-number" placeholder="e.g., IN-MH-2024-8841" type="text">
+</div>
+</div>
+</section>
+<!-- END: PrimaryInputsSection -->
+<!-- BEGIN: SpeciesAndColorSection (Sketch: cow, hen rows with color circles) -->
+<section aria-label="Animal Species and Coat Colors" class="space-y-2.5"><div class="flex items-center justify-between px-1 pt-1">
+<h2 class="text-xs font-bold uppercase tracking-wider text-gray-500">Species &amp; Coat Color</h2>
+<span class="text-[11px] font-medium text-gray-500">Select animal &amp; color</span>
+</div>
+<div class="bg-white rounded-3xl border border-[#dde6e0] shadow-sm overflow-hidden" data-purpose="species-unified-container">
+<!-- Hidden input storing selected species -->
+<input id="selected-species-input" name="species" type="hidden" value="cow">
+<!-- Row 1: Cow -->
+<div class="species-row p-3.5 bg-[#f0f6f2] flex items-center justify-between gap-3 border-b border-[#e3ebe5] relative cursor-pointer transition-colors" data-purpose="species-row-cow" data-species="cow" onclick="selectSpeciesRow(this)">
+<div class="flex items-center gap-2.5">
+<div class="w-11 h-11 rounded-xl bg-white flex items-center justify-center text-[#1b4d3e] text-2xl shadow-xs border border-[#cbe1d3]">🐮
+      </div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-base font-extrabold text-[#11352a] tracking-tight block species-title" style="animation-delay: 101ms;">Cow</span>
+<span class="species-badge text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-[#1b4d3e] text-white tracking-wider uppercase">Selected</span>
+</div>
+<span class="species-subtitle text-[11px] font-semibold text-emerald-800" style="animation-delay: 111ms;">Cattle / Bovine</span>
+</div>
+</div>
+<div aria-label="Cow Coat Colors" class="flex items-center gap-2 swatches-container transition-opacity opacity-100" role="radiogroup">
+<label class="cursor-pointer relative touch-press">
+<input class="sr-only swatch-input" name="cow-color" onchange="onSwatchSelected(this)" type="radio" value="reddish-brown">
+<div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-black/10 shadow-sm" style="background-color: rgb(139, 58, 43); box-shadow: rgb(255, 255, 255) 0px 0px 0px 2px, rgb(27, 77, 62) 0px 0px 0px 4px; transform: scale(1.08);" title="Reddish Brown / Tan">
+<i class="ph-bold ph-check text-white text-xs check-icon opacity-0" style="opacity: 1;"></i>
+</div>
+</label>
+<label class="cursor-pointer relative touch-press">
+<input class="sr-only swatch-input" name="cow-color" onchange="onSwatchSelected(this)" type="radio" value="black">
+<div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-black/10 shadow-sm" style="background-color: #1A1A1A;" title="Black">
+<i class="ph-bold ph-check text-white text-xs check-icon opacity-0" style="opacity: 0;"></i>
+</div>
+</label>
+<label class="cursor-pointer relative touch-press">
+<input class="sr-only swatch-input" name="cow-color" onchange="onSwatchSelected(this)" type="radio" value="white">
+<div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-gray-300 shadow-sm" style="background-color: #F5F6F2;" title="White / Cream">
+<i class="ph-bold ph-check text-gray-800 text-xs check-icon opacity-0" style="opacity: 0;"></i>
+</div>
+</label>
+<label class="cursor-pointer relative touch-press"><input class="sr-only swatch-input" name="cow-color" onchange="onSwatchSelected(this)" type="radio" value="spotted"><div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-gray-300 shadow-sm bg-white overflow-hidden bg-cover bg-center" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDaCN3JUzyaMHwNvZjClX9eoyizf30qPVABIHWvfn6ecHE7g-LCh9k-3KwYEeoYXulKloRKiljUu0O5cqtJ9tVlqRarDvvFU6XOKsRLIVpaZF_eqJA2LjMmuBI3QekQcpke24tby6xI6qApkHUjReQMbdYPxdpJO0tfUubqZNKR37SsoDQxR59eGTALClPtQpRSkxEAEz6txzd-YwQNxPR75U8ewCj9cNumjtY8XQXc56MlpkQZbAR2&quot;);" title="Black &amp; White Spotted"><i class="ph-bold ph-check text-white text-xs check-icon opacity-0" style="opacity: 0;"></i></div></label>
+</div>
+</div>
+<!-- Row 2: Buffalo (Selected by default) -->
+<div class="species-row p-3.5 bg-white hover:bg-gray-50 flex items-center justify-between gap-3 border-b border-[#e3ebe5] transition-colors cursor-pointer" data-purpose="species-row-buffalo" data-species="buffalo" onclick="selectSpeciesRow(this)">
+<div class="flex items-center gap-2.5">
+<div class="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center text-2xl shadow-xs border border-[#cbe1d3]">🦬</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-base font-bold text-gray-800 tracking-tight block species-title" style="animation-delay: 126ms;">Buffalo</span>
+<span class="species-badge text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-[#1b4d3e] text-white tracking-wider uppercase hidden">Selected</span>
+</div>
+<span class="species-subtitle text-[11px] font-medium text-gray-500" style="animation-delay: 137ms;">Water Buffalo</span>
+</div>
+</div>
+<div aria-label="Buffalo Coat Colors" class="flex items-center gap-2 swatches-container transition-opacity opacity-40" role="radiogroup">
+<label class="cursor-pointer relative touch-press"><input checked="" class="sr-only swatch-input" name="buffalo-color" onchange="onSwatchSelected(this)" type="radio" value="jet-black"><div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-black/10 shadow-sm" style="background-color: #1A1A1A;" title="Jet Black / Murrah"><i class="ph-bold ph-check text-white text-xs check-icon opacity-100" style="opacity: 0;"></i></div></label>
+<label class="cursor-pointer relative touch-press"><input class="sr-only swatch-input" name="buffalo-color" onchange="onSwatchSelected(this)" type="radio" value="slate-charcoal"><div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-black/10 shadow-sm" style="background-color: #383B3E;" title="Slate Charcoal"><i class="ph-bold ph-check text-white text-xs check-icon opacity-0" style="opacity: 0;"></i></div></label>
+<label class="cursor-pointer relative touch-press"><input class="sr-only swatch-input" name="buffalo-color" onchange="onSwatchSelected(this)" type="radio" value="dark-brown"><div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-black/10 shadow-sm" style="background-color: #6E5D4F;" title="Dark Brown"><i class="ph-bold ph-check text-white text-xs check-icon opacity-0" style="opacity: 0;"></i></div></label>
+<label class="cursor-pointer relative touch-press"><input class="sr-only swatch-input" name="buffalo-color" onchange="onSwatchSelected(this)" type="radio" value="light-grey"><div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-gray-300 shadow-sm" style="background-color: #E8E5DF;" title="Light Grey / Albino"><i class="ph-bold ph-check text-gray-800 text-xs check-icon opacity-0" style="opacity: 0;"></i></div></label>
+</div>
+</div>
+<!-- Row 3: Hen -->
+<div class="species-row p-3.5 bg-white hover:bg-gray-50 flex items-center justify-between gap-3 border-b border-[#e3ebe5] transition-colors cursor-pointer" data-purpose="species-row-hen" data-species="hen" onclick="selectSpeciesRow(this)">
+<div class="flex items-center gap-2.5">
+<div class="w-11 h-11 rounded-xl bg-amber-50 flex items-center justify-center text-2xl shadow-xs border border-amber-100">
+        🐔
+      </div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-base font-bold text-gray-800 tracking-tight block species-title" style="animation-delay: 152ms;">Hen</span>
+<span class="species-badge text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-[#1b4d3e] text-white tracking-wider uppercase hidden">Selected</span>
+</div>
+<span class="species-subtitle text-[11px] font-medium text-gray-500" style="animation-delay: 162ms;">Poultry</span>
+</div>
+</div>
+<div aria-label="Hen Plumage Colors" class="flex items-center gap-2 swatches-container transition-opacity opacity-40" role="radiogroup">
+<label class="cursor-pointer relative touch-press">
+<input class="sr-only swatch-input" name="hen-color" onchange="onSwatchSelected(this)" type="radio" value="russet-red">
+<div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-black/10 shadow-sm" style="background-color: rgb(160, 64, 0);" title="Russet Red">
+<i class="ph-bold ph-check text-white text-xs check-icon opacity-0" style="opacity: 0;"></i>
+</div>
+</label>
+<label class="cursor-pointer relative touch-press">
+<input class="sr-only swatch-input" name="hen-color" onchange="onSwatchSelected(this)" type="radio" value="jet-black">
+<div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-black/10 shadow-sm" style="background-color: #1C1C1E;" title="Jet Black">
+<i class="ph-bold ph-check text-white text-xs check-icon opacity-0" style="opacity: 0;"></i>
+</div>
+</label>
+<label class="cursor-pointer relative touch-press">
+<input class="sr-only swatch-input" name="hen-color" onchange="onSwatchSelected(this)" type="radio" value="pure-white">
+<div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-gray-300 shadow-sm" style="background-color: #FFFFFF;" title="Pure White">
+<i class="ph-bold ph-check text-gray-800 text-xs check-icon opacity-0" style="opacity: 0;"></i>
+</div>
+</label>
+<label class="cursor-pointer relative touch-press">
+<input class="sr-only swatch-input" name="hen-color" onchange="onSwatchSelected(this)" type="radio" value="golden-buff">
+<div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-black/10 shadow-sm" style="background-color: #D4A373;" title="Golden Buff">
+<i class="ph-bold ph-check text-white text-xs check-icon opacity-0" style="opacity: 0;"></i>
+</div>
+</label>
+</div>
+</div>
+<!-- Row 4: Goat -->
+<div class="species-row p-3.5 bg-white hover:bg-gray-50 flex items-center justify-between gap-3  transition-colors cursor-pointer" data-purpose="species-row-goat" data-species="goat" onclick="selectSpeciesRow(this)">
+<div class="flex items-center gap-2.5">
+<div class="w-11 h-11 rounded-xl bg-orange-50 flex items-center justify-center text-2xl shadow-xs border border-orange-100">
+        🐐
+      </div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-base font-bold text-gray-800 tracking-tight block species-title" style="animation-delay: 177ms;">Goat</span>
+<span class="species-badge text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-[#1b4d3e] text-white tracking-wider uppercase hidden">Selected</span>
+</div>
+<span class="species-subtitle text-[11px] font-medium text-gray-500" style="animation-delay: 188ms;">Caprine</span>
+</div>
+</div>
+<div aria-label="Goat Coat Colors" class="flex items-center gap-2 swatches-container opacity-40 transition-opacity" role="radiogroup">
+<label class="cursor-pointer relative touch-press">
+<input class="sr-only swatch-input" name="goat-color" onchange="onSwatchSelected(this)" type="radio" value="brown">
+<div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-black/10 shadow-sm" style="background-color: #5C4033;" title="Brown">
+<i class="ph-bold ph-check text-white text-xs check-icon opacity-0" style="opacity: 0;"></i>
+</div>
+</label>
+<label class="cursor-pointer relative touch-press">
+<input class="sr-only swatch-input" name="goat-color" onchange="onSwatchSelected(this)" type="radio" value="black">
+<div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-black/10 shadow-sm" style="background-color: #1F2421;" title="Black">
+<i class="ph-bold ph-check text-white text-xs check-icon opacity-0" style="opacity: 0;"></i>
+</div>
+</label>
+<label class="cursor-pointer relative touch-press">
+<input class="sr-only swatch-input" name="goat-color" onchange="onSwatchSelected(this)" type="radio" value="white">
+<div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-gray-300 shadow-sm" style="background-color: #F8F9FA;" title="White">
+<i class="ph-bold ph-check text-gray-800 text-xs check-icon opacity-0" style="opacity: 0;"></i>
+</div>
+</label>
+<label class="cursor-pointer relative touch-press">
+<input class="sr-only swatch-input" name="goat-color" onchange="onSwatchSelected(this)" type="radio" value="spotted-grey">
+<div class="w-8 h-8 rounded-full swatch-indicator flex items-center justify-center transition-all border border-black/10 shadow-sm" style="background-color: #A89F91;" title="Spotted Grey">
+<i class="ph-bold ph-check text-white text-xs check-icon opacity-0" style="opacity: 0;"></i>
+</div>
+</label>
+</div>
+</div>
+</div></section>
+<!-- END: SpeciesAndColorSection -->
+<!-- BEGIN: DynamicBreedSection (Displays dynamically for Cow and Hen only) -->
+<section aria-label="Dynamic Breed Selection" class="space-y-2" id="dynamic-breed-section">
+<!-- Cow Breed Group -->
+<div class="bg-white rounded-3xl p-4 border border-[#dde6e0] shadow-sm space-y-3" id="cow-breed-group">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<i class="ph-fill ph-dna text-xs text-[#0B8F5C]"></i>
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-600">Breed Type (Cow)</h3>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">Recommended</span>
+</div>
+<div class="flex flex-col gap-2" role="radiogroup">
+<!-- Option 1: Indigenous / local -->
+<button aria-checked="true" class="cow-breed-btn w-full p-3 rounded-2xl flex items-center justify-between text-left transition-all border-2 border-[#1b4d3e] bg-[#f0f6f2] shadow-xs touch-press" data-breed="indigenous" onclick="selectCowBreed(this)" role="radio" type="button">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-full bg-[#1b4d3e] text-white flex items-center justify-center text-xs shrink-0 breed-radio-indicator">
+<i class="ph-bold ph-check"></i>
+</div>
+<div>
+<span class="text-sm font-bold text-[#11352a] block">Indigenous / local</span>
+<span class="text-[11px] font-medium text-gray-500">Desi, Gir, Sahiwal, Red Sindhi, etc.</span>
+</div>
+</div>
+<span class="text-xs font-bold text-[#1b4d3e] shrink-0">Native</span>
+</button>
+<!-- Option 2: Crossbred / exotic -->
+<button aria-checked="false" class="cow-breed-btn w-full p-3 rounded-2xl flex items-center justify-between text-left transition-all border border-[#dde6e0] bg-white hover:bg-gray-50 touch-press" data-breed="crossbred" onclick="selectCowBreed(this)" role="radio" type="button">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-full border-2 border-gray-300 bg-white text-transparent flex items-center justify-center text-xs shrink-0 breed-radio-indicator">
+<i class="ph-bold ph-check"></i>
+</div>
+<div>
+<span class="text-sm font-bold text-gray-800 block">Crossbred / exotic</span>
+<span class="text-[11px] font-medium text-gray-500">HF, Jersey, and their crosses</span>
+</div>
+</div>
+<span class="text-xs font-semibold text-gray-400 shrink-0">High-yield</span>
+</button>
+</div>
+</div>
+<!-- Hen Breed / Purpose Group -->
+<div class="bg-white rounded-3xl p-4 border border-[#dde6e0] shadow-sm space-y-3 hidden" id="hen-breed-group">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<i class="ph-fill ph-egg text-xs text-[#0B8F5C]"></i>
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-600">Purpose / Breed Type (Hen)</h3>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">Select One</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5" role="radiogroup">
+<!-- Option 1: Layer -->
+<button aria-checked="true" class="hen-breed-btn p-3 rounded-2xl flex flex-col items-center justify-center text-center gap-1 transition-all border-2 border-[#1b4d3e] bg-[#f0f6f2] shadow-xs touch-press" data-hen-breed="layer" onclick="selectHenBreed(this)" role="radio" type="button">
+<div class="w-8 h-8 rounded-full bg-[#1b4d3e] text-white flex items-center justify-center text-base hen-breed-icon">
+<i class="ph-bold ph-egg"></i>
+</div>
+<span class="text-sm font-bold text-[#11352a]">Layer</span>
+<span class="text-[11px] font-medium text-gray-500">Egg Production</span>
+</button>
+<!-- Option 2: Broiler -->
+<button aria-checked="false" class="hen-breed-btn p-3 rounded-2xl flex flex-col items-center justify-center text-center gap-1 transition-all border border-[#dde6e0] bg-white hover:bg-gray-50 touch-press" data-hen-breed="broiler" onclick="selectHenBreed(this)" role="radio" type="button">
+<div class="w-8 h-8 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center text-base hen-breed-icon">
+<i class="ph-bold ph-feather"></i>
+</div>
+<span class="text-sm font-bold text-gray-700">Broiler</span>
+<span class="text-[11px] font-medium text-gray-500">Meat Poultry</span>
+</button>
+</div>
+</div>
+</section>
+<!-- END: DynamicBreedSection -->
+<!-- BEGIN: AgeEstimationSection (Directly matches the callout in wireframe image) -->
+<section class="bg-white rounded-3xl p-4 border border-[#dbe6df] shadow-sm space-y-3.5" data-purpose="age-estimation-card">
+<!-- Header with Toggle (Approximate vs Exact DOB) -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<h3 class="text-sm font-extrabold text-[#11352a]">Age Estimation</h3>
+<span class="text-gray-400 cursor-pointer" title="Approximate or enter exact birth date">
+<i class="ph-fill ph-info text-xs"></i>
+</span>
+</div>
+<!-- Switcher Pill -->
+<div class="inline-flex p-1 bg-[#f0f4f1] rounded-full border border-[#dde6e0]" role="tablist"><button aria-selected="true" class="px-3 py-1 rounded-full text-xs font-bold bg-[#1b4d3e] text-white shadow-xs transition-all" id="approx-tab-btn" onclick="(function(){ var a = document.getElementById('approx-tab-btn'); var e = document.getElementById('exact-tab-btn'); a.className = 'px-3 py-1 rounded-full text-xs font-bold text-white shadow-xs transition-all'; a.style.backgroundColor = '#5585d4'; a.style.color = '#ffffff'; e.className = 'px-3 py-1 rounded-full text-xs font-semibold text-gray-600 hover:text-gray-900 transition-all'; e.style.backgroundColor = 'transparent'; e.style.color = '#4B5348'; var s = document.getElementById('approximate-steppers'); if(s) s.classList.remove('hidden'); var d = document.getElementById('exact-dob-container'); if(d) d.classList.add('hidden'); })()" role="tab" style="background-color: rgb(85, 133, 212); color: rgb(255, 255, 255);" type="button">Approximate</button><button aria-selected="false" class="px-3 py-1 rounded-full text-xs font-semibold text-gray-600 hover:text-gray-900 transition-all" id="exact-tab-btn" onclick="(function(){ var a = document.getElementById('approx-tab-btn'); var e = document.getElementById('exact-tab-btn'); e.className = 'px-3 py-1 rounded-full text-xs font-bold text-white shadow-xs transition-all'; e.style.backgroundColor = '#5585d4'; e.style.color = '#ffffff'; a.className = 'px-3 py-1 rounded-full text-xs font-semibold text-gray-600 hover:text-gray-900 transition-all'; a.style.backgroundColor = 'transparent'; a.style.color = '#4B5348'; var s = document.getElementById('approximate-steppers'); if(s) s.classList.add('hidden'); var d = document.getElementById('exact-dob-container'); if(d) d.classList.remove('hidden'); })()" role="tab" style="color: rgb(75, 83, 72); background-color: transparent;" type="button">Exact DOB</button></div>
+</div>
+<!-- Stepper Controls (Years & Months / Weeks & Days for Hen) -->
+<div class="grid grid-cols-2 gap-3 pt-1" id="approximate-steppers">
+<!-- Stepper 1 (Years or Weeks) -->
+<div class="bg-[#f8faf8] border border-[#e3eae4] rounded-2xl p-2.5 flex flex-col items-center">
+<span class="text-[11px] font-bold text-gray-500 uppercase tracking-wide mb-1.5" id="unit-1-label">Years</span>
+<div class="flex items-center justify-between w-full px-1">
+<button aria-label="Decrease age unit 1" class="w-8 h-8 rounded-full bg-white shadow-xs border border-gray-200 flex items-center justify-center text-gray-700 font-bold active:scale-90 transition-transform" onclick="changeValue('years-val', -1)" type="button">
+<i class="ph-bold ph-minus text-xs"></i>
+</button>
+<span class="text-xl font-extrabold text-[#191c1b]" id="years-val">3</span>
+<button aria-label="Increase age unit 1" class="w-8 h-8 rounded-full bg-white shadow-xs border border-gray-200 flex items-center justify-center text-gray-700 font-bold active:scale-90 transition-transform" onclick="changeValue('years-val', 1)" type="button">
+<i class="ph-bold ph-plus text-xs"></i>
+</button>
+</div>
+</div>
+<!-- Stepper 2 (Months or Days) -->
+<div class="bg-[#f8faf8] border border-[#e3eae4] rounded-2xl p-2.5 flex flex-col items-center">
+<span class="text-[11px] font-bold text-gray-500 uppercase tracking-wide mb-1.5" id="unit-2-label">Months</span>
+<div class="flex items-center justify-between w-full px-1">
+<button aria-label="Decrease age unit 2" class="w-8 h-8 rounded-full bg-white shadow-xs border border-gray-200 flex items-center justify-center text-gray-700 font-bold active:scale-90 transition-transform" onclick="changeMonth('months-val', -1)" type="button">
+<i class="ph-bold ph-minus text-xs"></i>
+</button>
+<span class="text-xl font-extrabold text-[#191c1b]" id="months-val">6</span>
+<button aria-label="Increase age unit 2" class="w-8 h-8 rounded-full bg-white shadow-xs border border-gray-200 flex items-center justify-center text-gray-700 font-bold active:scale-90 transition-transform" onclick="changeMonth('months-val', 1)" type="button">
+<i class="ph-bold ph-plus text-xs"></i>
+</button>
+</div>
+</div>
+</div><div class="pt-1 hidden" id="exact-dob-container"><div class="bg-[#f8faf8] border border-[#e3eae4] rounded-2xl p-3 flex flex-col gap-1.5"><label class="text-[11px] font-bold text-gray-500 uppercase tracking-wide" for="exact-birth-date">Date of Birth</label><input class="w-full text-sm font-bold text-[#191c1b] bg-white border border-[#dde6e0] rounded-xl px-3 py-2 focus:ring-1 focus:ring-[#1b4d3e] focus:border-[#1b4d3e]" id="exact-birth-date" name="exact-birth-date" onchange="(function(e){ if(!e.target.value) return; var d = new Date(e.target.value); var today = new Date(); var diffYrs = ((today - d) / (1000 * 60 * 60 * 24 * 365.25)).toFixed(1); var months = ['January','February','March','April','May','June','July','August','September','October','November','December']; var txt = months[d.getMonth()] + ' ' + d.getFullYear() + ' (' + diffYrs + ' yrs)'; var sum = document.getElementById('calc-summary-text'); if(sum) sum.textContent = txt; })(event)" type="date" value="2020-11-15"></div></div>
+<!-- Calculated Summary Banner (Matching Wireframe Note) -->
+<div class="bg-[#f0f6f2] border border-[#cbe4d4] rounded-xl px-3 py-2 flex items-center justify-between text-xs" data-purpose="age-calculation-summary">
+<div class="flex items-center gap-1.5 text-gray-600 font-medium">
+<i class="ph-bold ph-calendar text-[#1b4d3e]" style="color: rgb(11, 143, 92);"></i>
+<span>Calculated Est. Birth:</span>
+</div>
+<span class="font-bold text-[#1b4d3e]" id="calc-summary-text" style="color: rgb(11, 143, 92);">May 2023 (3.5 yrs)</span>
+</div>
+</section>
+<!-- END: AgeEstimationSection -->
+<!-- BEGIN: SexSelectorSection (Sketch: [male] [female] side by side) -->
+<section aria-label="Animal Biological Sex" class="space-y-2">
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 px-1">GENDER</h3>
+<div aria-label="Sex selection" class="flex items-center gap-1.5 p-1 bg-[#f0f4f1] rounded-full border border-[#dde6e0]" role="radiogroup"><input id="animal-sex-input" name="animal-sex" type="hidden" value="male"><button aria-checked="true" aria-pressed="true" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-full font-bold text-sm shadow-sm transition-all touch-press" data-state="checked" id="sex-btn-male" onclick="(function(){ var m = document.getElementById('sex-btn-male'); var f = document.getElementById('sex-btn-female'); var inp = document.getElementById('animal-sex-input'); if(inp) inp.value = 'male'; m.style.backgroundColor = '#77b6d4'; m.style.borderColor = '#77b6d4'; m.style.color = '#ffffff'; m.className = 'flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-full font-bold text-sm shadow-sm transition-all touch-press'; m.setAttribute('aria-checked', 'true'); m.setAttribute('aria-pressed', 'true'); m.setAttribute('data-state', 'checked'); f.style.backgroundColor = 'transparent'; f.style.borderColor = 'transparent'; f.style.color = '#4B5348'; f.className = 'flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-full font-bold text-sm text-gray-600 bg-transparent border border-transparent transition-all touch-press hover:text-gray-900'; f.setAttribute('aria-checked', 'false'); f.setAttribute('aria-pressed', 'false'); f.setAttribute('data-state', 'unchecked'); })()" role="radio" style="background-color: rgb(119, 182, 212); border-color: rgb(119, 182, 212); color: rgb(255, 255, 255);" type="button"><i class="ph-bold ph-gender-male text-base transition-colors" id="sex-icon-male"></i><span>Male</span></button><button aria-checked="false" aria-pressed="false" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-full font-bold text-sm text-gray-600 bg-transparent border border-transparent transition-all touch-press hover:text-gray-900" data-state="unchecked" id="sex-btn-female" onclick="(function(){ var m = document.getElementById('sex-btn-male'); var f = document.getElementById('sex-btn-female'); var inp = document.getElementById('animal-sex-input'); if(inp) inp.value = 'female'; f.style.backgroundColor = '#d47095'; f.style.borderColor = '#d47095'; f.style.color = '#ffffff'; f.className = 'flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-full font-bold text-sm shadow-sm transition-all touch-press'; f.setAttribute('aria-checked', 'true'); f.setAttribute('aria-pressed', 'true'); f.setAttribute('data-state', 'checked'); m.style.backgroundColor = 'transparent'; m.style.borderColor = 'transparent'; m.style.color = '#4B5348'; m.className = 'flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-full font-bold text-sm text-gray-600 bg-transparent border border-transparent transition-all touch-press hover:text-gray-900'; m.setAttribute('aria-checked', 'false'); m.setAttribute('aria-pressed', 'false'); m.setAttribute('data-state', 'unchecked'); })()" role="radio" style="background-color: transparent; border-color: transparent; color: rgb(75, 83, 72);" type="button"><i class="ph-bold ph-gender-female text-base transition-colors" id="sex-icon-female"></i><span>Female</span></button></div>
+</section>
+<!-- END: SexSelectorSection -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: StickyBottomActionBar -->
+<footer class="fixed bottom-0 max-w-md w-full bg-[#f7f9f7]/95 backdrop-blur-lg border-t border-[#e2ece5] px-4 pt-3 safe-bottom z-30 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]" data-purpose="action-buttons">
+<div class="flex items-center gap-3 mb-2">
+<!-- Continue Button (Primary #1b4d3e) -->
+<button class="flex-[1.5] py-3.5 px-6 rounded-full bg-[#1b4d3e] hover:bg-[#164234] text-white font-bold text-sm shadow-lg shadow-[#1b4d3e]/25 active:scale-[0.98] transition-all flex items-center justify-center gap-2 touch-press" style="background-color: rgb(11, 143, 92); box-shadow: rgba(11, 143, 92, 0.3) 0px 10px 15px -3px;" type="button">
+<span>SUBMIT</span>
+<i class="ph-bold ph-arrow-right text-base"></i>
+</button>
+</div>
+</footer>
+<!-- END: StickyBottomActionBar -->
+</div>
+<!-- BEGIN: InteractiveScripts -->
+<script data-purpose="species-and-coat-color-handlers">
+  window.selectSpeciesRow = function(targetRow) {
+    var container = targetRow.closest('[data-purpose="species-unified-container"]');
+    if (!container) return;
+    var allRows = container.querySelectorAll('.species-row');
+    var speciesInput = document.getElementById('selected-species-input');
+    var targetSpecies = targetRow.getAttribute('data-species');
+    var prevSpecies = speciesInput ? speciesInput.value : '';
+    if (speciesInput && targetSpecies) speciesInput.value = targetSpecies;
+
+    allRows.forEach(function(row) {
+      var isTarget = (row === targetRow);
+      var badge = row.querySelector('.species-badge');
+      var title = row.querySelector('.species-title');
+      var sub = row.querySelector('.species-subtitle');
+      var swatchesContainer = row.querySelector('.swatches-container');
+      var swatches = row.querySelectorAll('.swatch-input');
+      var isLast = !row.nextElementSibling || !row.nextElementSibling.classList.contains('species-row');
+      var borderClass = isLast ? '' : 'border-b border-[#e3ebe5]';
+      
+      if (isTarget) {
+        row.className = 'species-row p-3.5 bg-[#f0f6f2] flex items-center justify-between gap-3 ' + borderClass + ' relative cursor-pointer transition-colors';
+        if (badge) badge.classList.remove('hidden');
+        if (title) title.className = 'text-base font-extrabold text-[#11352a] tracking-tight block species-title';
+        if (sub) {
+          sub.className = targetSpecies === 'cow' ? 'species-subtitle text-[11px] font-semibold text-emerald-800' :
+                          targetSpecies === 'buffalo' ? 'species-subtitle text-[11px] font-semibold text-emerald-800' :
+                          targetSpecies === 'hen' ? 'species-subtitle text-[11px] font-semibold text-emerald-800' :
+                          'species-subtitle text-[11px] font-semibold text-emerald-800';
+        }
+        if (swatchesContainer) {
+          swatchesContainer.classList.remove('opacity-40');
+          swatchesContainer.classList.add('opacity-100');
+        }
+        
+        // Ensure at least one swatch is selected for active species if none selected
+        var hasChecked = false;
+        swatches.forEach(function(s) { if (s.checked) hasChecked = true; });
+        if (!hasChecked && swatches.length > 0) {
+          swatches[0].checked = true;
+          updateSwatchIndicators(row);
+        } else {
+          updateSwatchIndicators(row);
+        }
+      } else {
+        row.className = 'species-row p-3.5 bg-white hover:bg-gray-50 flex items-center justify-between gap-3 ' + borderClass + ' transition-colors cursor-pointer';
+        if (badge) badge.classList.add('hidden');
+        if (title) title.className = 'text-base font-bold text-gray-800 tracking-tight block species-title';
+        if (sub) sub.className = 'species-subtitle text-[11px] font-medium text-gray-500';
+        if (swatchesContainer) {
+          swatchesContainer.classList.remove('opacity-100');
+          swatchesContainer.classList.add('opacity-40');
+        }
+        // Deselect swatches of unselected rows
+        swatches.forEach(function(s) { s.checked = false; });
+        updateSwatchIndicators(row);
+      }
+    });
+
+    // Update dynamic breed options
+    updateBreedSection(targetSpecies);
+
+    // Update Age Estimation stepper units and calculation
+    handleSpeciesAgeUnits(targetSpecies, prevSpecies);
+  };
+
+  function updateBreedSection(species) {
+    var breedSec = document.getElementById('dynamic-breed-section');
+    var cowGroup = document.getElementById('cow-breed-group');
+    var henGroup = document.getElementById('hen-breed-group');
+    if (!breedSec || !cowGroup || !henGroup) return;
+
+    if (species === 'cow') {
+      breedSec.classList.remove('hidden');
+      cowGroup.classList.remove('hidden');
+      henGroup.classList.add('hidden');
+    } else if (species === 'hen') {
+      breedSec.classList.remove('hidden');
+      cowGroup.classList.add('hidden');
+      henGroup.classList.remove('hidden');
+    } else {
+      // Buffalo, Goat, or any other
+      breedSec.classList.add('hidden');
+      cowGroup.classList.add('hidden');
+      henGroup.classList.add('hidden');
+    }
+  }
+
+  window.selectCowBreed = function(selectedBtn) {
+    var buttons = document.querySelectorAll('.cow-breed-btn');
+    buttons.forEach(function(btn) {
+      var isTarget = (btn === selectedBtn);
+      var ind = btn.querySelector('.breed-radio-indicator');
+      var title = btn.querySelector('.text-sm');
+      if (isTarget) {
+        btn.setAttribute('aria-checked', 'true');
+        btn.className = 'cow-breed-btn w-full p-3 rounded-2xl flex items-center justify-between text-left transition-all border-2 border-[#1b4d3e] bg-[#f0f6f2] shadow-xs touch-press';
+        if (ind) {
+          ind.className = 'w-7 h-7 rounded-full bg-[#1b4d3e] text-white flex items-center justify-center text-xs shrink-0 breed-radio-indicator';
+        }
+        if (title) {
+          title.className = 'text-sm font-bold text-[#11352a] block';
+        }
+      } else {
+        btn.setAttribute('aria-checked', 'false');
+        btn.className = 'cow-breed-btn w-full p-3 rounded-2xl flex items-center justify-between text-left transition-all border border-[#dde6e0] bg-white hover:bg-gray-50 touch-press';
+        if (ind) {
+          ind.className = 'w-7 h-7 rounded-full border-2 border-gray-300 bg-white text-transparent flex items-center justify-center text-xs shrink-0 breed-radio-indicator';
+        }
+        if (title) {
+          title.className = 'text-sm font-bold text-gray-800 block';
+        }
+      }
+    });
+  };
+
+  window.selectHenBreed = function(selectedBtn) {
+    var buttons = document.querySelectorAll('.hen-breed-btn');
+    buttons.forEach(function(btn) {
+      var isTarget = (btn === selectedBtn);
+      var icon = btn.querySelector('.hen-breed-icon');
+      var label = btn.querySelector('.text-sm');
+      if (isTarget) {
+        btn.setAttribute('aria-checked', 'true');
+        btn.className = 'hen-breed-btn p-3 rounded-2xl flex flex-col items-center justify-center text-center gap-1 transition-all border-2 border-[#1b4d3e] bg-[#f0f6f2] shadow-xs touch-press';
+        if (icon) {
+          icon.className = 'w-8 h-8 rounded-full bg-[#1b4d3e] text-white flex items-center justify-center text-base hen-breed-icon';
+        }
+        if (label) {
+          label.className = 'text-sm font-bold text-[#11352a]';
+        }
+      } else {
+        btn.setAttribute('aria-checked', 'false');
+        btn.className = 'hen-breed-btn p-3 rounded-2xl flex flex-col items-center justify-center text-center gap-1 transition-all border border-[#dde6e0] bg-white hover:bg-gray-50 touch-press';
+        if (icon) {
+          icon.className = 'w-8 h-8 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center text-base hen-breed-icon';
+        }
+        if (label) {
+          label.className = 'text-sm font-bold text-gray-700';
+        }
+      }
+    });
+  };
+
+  function updateSwatchIndicators(row) {
+    var swatches = row.querySelectorAll('.swatch-input');
+    swatches.forEach(function(swatch) {
+      var indicator = swatch.nextElementSibling;
+      if (!indicator) return;
+      var checkIcon = indicator.querySelector('.check-icon');
+      if (swatch.checked) {
+        indicator.style.boxShadow = '0 0 0 2px #ffffff, 0 0 0 4px #1b4d3e';
+        indicator.style.transform = 'scale(1.08)';
+        if (checkIcon) checkIcon.style.opacity = '1';
+      } else {
+        indicator.style.boxShadow = '';
+        indicator.style.transform = '';
+        if (checkIcon) checkIcon.style.opacity = '0';
+      }
+    });
+  }
+
+  window.onSwatchSelected = function(swatchInput) {
+    var parentRow = swatchInput.closest('.species-row');
+    if (!parentRow) return;
+    
+    // Check if the row is already active
+    var badge = parentRow.querySelector('.species-badge');
+    var isAlreadyActive = badge && !badge.classList.contains('hidden');
+    
+    if (!isAlreadyActive) {
+      // Activate species row and select this swatch
+      window.selectSpeciesRow(parentRow);
+    }
+    
+    // Update swatch states in this row
+    var swatches = parentRow.querySelectorAll('.swatch-input');
+    swatches.forEach(function(s) {
+      if (s !== swatchInput) s.checked = false;
+    });
+    swatchInput.checked = true;
+    updateSwatchIndicators(parentRow);
+  };
+</script>
+<script data-purpose="stepper-and-color-handlers">
+    // Cache for preserving values when toggling species
+    var previousMammalValues = { val1: 3, val2: 6 };
+    var previousHenValues = { val1: 8, val2: 4 };
+
+    function handleSpeciesAgeUnits(species, prevSpecies) {
+      var unit1Label = document.getElementById('unit-1-label');
+      var unit2Label = document.getElementById('unit-2-label');
+      var val1El = document.getElementById('years-val');
+      var val2El = document.getElementById('months-val');
+      if (!unit1Label || !unit2Label || !val1El || !val2El) return;
+
+      if (species === 'hen') {
+        if (prevSpecies !== 'hen') {
+          previousMammalValues.val1 = parseInt(val1El.textContent, 10);
+          previousMammalValues.val2 = parseInt(val2El.textContent, 10);
+          val1El.textContent = previousHenValues.val1;
+          val2El.textContent = previousHenValues.val2;
+        }
+        unit1Label.textContent = 'Weeks';
+        unit2Label.textContent = 'Days';
+      } else {
+        if (prevSpecies === 'hen') {
+          previousHenValues.val1 = parseInt(val1El.textContent, 10);
+          previousHenValues.val2 = parseInt(val2El.textContent, 10);
+          val1El.textContent = previousMammalValues.val1;
+          val2El.textContent = previousMammalValues.val2;
+        }
+        unit1Label.textContent = 'Years';
+        unit2Label.textContent = 'Months';
+      }
+      updateCalculation();
+    }
+
+    // Interactive stepper controls for Age Estimation
+    function changeValue(id, delta) {
+      const el = document.getElementById(id);
+      let currentVal = parseInt(el.textContent, 10);
+      currentVal = Math.max(0, currentVal + delta);
+      el.textContent = currentVal;
+      updateCalculation();
+    }
+
+    function changeMonth(id, delta) {
+      const el = document.getElementById(id);
+      const speciesInput = document.getElementById('selected-species-input');
+      const isHen = speciesInput && speciesInput.value === 'hen';
+      let currentVal = parseInt(el.textContent, 10);
+      currentVal = currentVal + delta;
+      
+      if (isHen) {
+        // Days roll within 0 - 6
+        if (currentVal < 0) currentVal = 6;
+        if (currentVal > 6) currentVal = 0;
+      } else {
+        // Months roll within 0 - 11
+        if (currentVal < 0) currentVal = 11;
+        if (currentVal > 11) currentVal = 0;
+      }
+      el.textContent = currentVal;
+      updateCalculation();
+    }
+
+    function updateCalculation() {
+      const speciesInput = document.getElementById('selected-species-input');
+      const isHen = speciesInput && speciesInput.value === 'hen';
+      const summaryText = document.getElementById('calc-summary-text');
+      if (!summaryText) return;
+
+      const val1 = parseInt(document.getElementById('years-val').textContent, 10);
+      const val2 = parseInt(document.getElementById('months-val').textContent, 10);
+      const today = new Date();
+
+      if (isHen) {
+        // val1 is Weeks, val2 is Days
+        const totalDays = (val1 * 7) + val2;
+        const estDate = new Date(today.getTime() - (totalDays * 24 * 60 * 60 * 1000));
+        
+        const monthNames = [
+          "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        ];
+        const dateStr = `${estDate.getDate()} ${monthNames[estDate.getMonth()]} ${estDate.getFullYear()}`;
+        
+        var ageParts = [];
+        if (val1 > 0) ageParts.push(`${val1} ${val1 === 1 ? 'wk' : 'wks'}`);
+        if (val2 > 0 || val1 === 0) ageParts.push(`${val2} ${val2 === 1 ? 'day' : 'days'}`);
+        const ageLabel = ageParts.join(', ');
+
+        summaryText.textContent = `${dateStr} (${ageLabel} old approx)`;
+      } else {
+        // val1 is Years, val2 is Months
+        const targetDate = new Date(today.getFullYear() - val1, today.getMonth() - val2, 1);
+        
+        const monthNames = [
+          "January", "February", "March", "April", "May", "June", 
+          "July", "August", "September", "October", "November", "December"
+        ];
+        
+        const targetMonth = monthNames[targetDate.getMonth()];
+        const targetYear = targetDate.getFullYear();
+        const totalYrs = (val1 + (val2 / 12)).toFixed(1);
+        
+        summaryText.textContent = `${targetMonth} ${targetYear} (${totalYrs} yrs)`;
+      }
+    }
+
+    // Toggle behavior between Approx and Exact DOB
+    const approxBtn = document.getElementById('approx-tab-btn');
+    const exactBtn = document.getElementById('exact-tab-btn');
+
+    if (approxBtn && exactBtn) {
+      approxBtn.addEventListener('click', () => {
+        approxBtn.className = "px-3 py-1 rounded-full text-xs font-bold bg-[#1b4d3e] text-white shadow-xs transition-all";
+        exactBtn.className = "px-3 py-1 rounded-full text-xs font-semibold text-gray-600 hover:text-gray-900 transition-all";
+      });
+
+      exactBtn.addEventListener('click', () => {
+        exactBtn.className = "px-3 py-1 rounded-full text-xs font-bold bg-[#1b4d3e] text-white shadow-xs transition-all";
+        approxBtn.className = "px-3 py-1 rounded-full text-xs font-semibold text-gray-600 hover:text-gray-900 transition-all";
+      });
+    }
+
+    // Sex toggle functionality
+    function selectSex(sex) {
+      const maleBtn = document.getElementById('sex-btn-male');
+      const femaleBtn = document.getElementById('sex-btn-female');
+      const sexInput = document.getElementById('animal-sex-input');
+      
+      if (!maleBtn || !femaleBtn) return;
+      if (sexInput) sexInput.value = sex;
+
+      const activeClass = "flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-full font-bold text-sm text-white bg-[#0B8F5C] shadow-sm border border-[#0B8F5C] transition-all touch-press";
+      const inactiveClass = "flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-full font-bold text-sm text-[#1b4d3e] bg-transparent border border-transparent transition-all touch-press hover:text-gray-900";
+
+      if (sex === 'male') {
+        maleBtn.className = activeClass;
+        maleBtn.setAttribute('aria-checked', 'true');
+        maleBtn.setAttribute('aria-pressed', 'true');
+        maleBtn.setAttribute('data-state', 'checked');
+
+        femaleBtn.className = inactiveClass;
+        femaleBtn.setAttribute('aria-checked', 'false');
+        femaleBtn.setAttribute('aria-pressed', 'false');
+        femaleBtn.setAttribute('data-state', 'unchecked');
+      } else {
+        femaleBtn.className = activeClass;
+        femaleBtn.setAttribute('aria-checked', 'true');
+        femaleBtn.setAttribute('aria-pressed', 'true');
+        femaleBtn.setAttribute('data-state', 'checked');
+
+        maleBtn.className = inactiveClass;
+        maleBtn.setAttribute('aria-checked', 'false');
+        maleBtn.setAttribute('aria-pressed', 'false');
+        maleBtn.setAttribute('data-state', 'unchecked');
+      }
+    }
+  </script>
+<!-- END: InteractiveScripts -->
+
+
+</body></html>

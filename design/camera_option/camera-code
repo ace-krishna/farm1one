@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<title>Camera Interface</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            neutral: {
+              950: '#0b0b0c',
+              900: '#121214',
+              850: '#18181b',
+              800: '#27272a',
+              700: '#3f3f46',
+              400: '#a1a1aa',
+              200: '#e4e4e7',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="global-resets">
+    /* Prevent selection and default tap highlights for native app feel */
+    * {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      overflow: hidden;
+    }
+  </style>
+<style data-purpose="interactive-animations">
+    /* Subtle touch feedback styles */
+    .btn-press:active {
+      transform: scale(0.92);
+      opacity: 0.85;
+      transition: transform 0.1s ease, opacity 0.1s ease;
+    }
+    .shutter-press:active .shutter-inner {
+      transform: scale(0.88);
+      opacity: 0.8;
+      transition: transform 0.1s ease;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-black p-0 sm:p-4">
+<!-- BEGIN: MobileContainer -->
+<!-- Outer iOS device frame directly reflecting the wireframe proportion -->
+<div class="relative w-full max-w-[430px] h-[100dvh] sm:h-[844px] bg-black flex flex-col justify-between p-4 sm:rounded-[48px] sm:border sm:border-neutral-800 shadow-2xl overflow-hidden" data-purpose="mobile-device-frame">
+<!-- BEGIN: TopStatusBar -->
+<!-- Minimalist dark status indicators -->
+<header class="w-full pt-1 pb-2 px-3 flex justify-between items-center text-xs font-medium text-neutral-400 z-10" data-purpose="camera-header">
+<span class="">09:41</span>
+
+</header>
+<!-- END: TopStatusBar -->
+<!-- BEGIN: ViewfinderSection -->
+<!-- Large rounded viewfinder rectangle occupying the main upper area -->
+<main class="relative flex-1 w-full bg-neutral-900 border border-neutral-700/80 rounded-[32px] overflow-hidden flex flex-col justify-end p-5 shadow-inner" data-purpose="camera-viewfinder"><div class="absolute top-4 left-0 right-0 z-20 flex justify-center pointer-events-none px-4"><div class="bg-black/40 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 flex items-center justify-center shadow-lg opacity-75"><span class="text-[10px] sm:text-[11px] font-medium tracking-wider text-white/90 uppercase text-center">PLEASE CLICK THE PICTURE OF THE AFFECTED AREA</span></div></div>
+<!-- Subtle camera focal points/grid in neutral tone -->
+<div class="absolute inset-0 pointer-events-none opacity-20">
+<div class="w-full h-full grid grid-cols-3 grid-rows-3 border border-neutral-600">
+<div class="border-r border-b border-neutral-600"></div>
+<div class="border-r border-b border-neutral-600"></div>
+<div class="border-b border-neutral-600"></div>
+<div class="border-r border-b border-neutral-600"></div>
+<div class="border-r border-b border-neutral-600"></div>
+<div class="border-b border-neutral-600"></div>
+<div class="border-r border-neutral-600"></div>
+<div class="border-r border-neutral-600"></div>
+<div></div>
+</div>
+</div>
+<!-- Flashlight Toggle Button (Positioned at bottom-left inside viewfinder) -->
+<div class="relative z-10 flex items-center" data-purpose="viewfinder-controls"><button id="flashlight-button" aria-label="Toggle Torch" onclick="const on = this.getAttribute('data-active') === 'true'; if (on) { this.setAttribute('data-active', 'false'); this.className = 'btn-press rounded-full py-2 px-3.5 flex items-center gap-2 border border-white/20 bg-white/10 backdrop-blur-md text-white text-xs font-semibold tracking-wider transition-all duration-200 cursor-pointer'; } else { this.setAttribute('data-active', 'true'); this.className = 'btn-press rounded-full py-2 px-3.5 flex items-center gap-2 border border-white bg-white text-black text-xs font-semibold tracking-wider transition-all duration-200 cursor-pointer shadow-[0_0_15px_rgba(255,255,255,0.6)]'; }" data-active="false" class="btn-press rounded-full py-2 px-3.5 flex items-center gap-2 border border-white/20 bg-white/10 backdrop-blur-md text-white text-xs font-semibold tracking-wider transition-all duration-200 cursor-pointer"><svg class="w-4 h-4 stroke-current fill-none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6c0 2-2 4-2 7v6a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-6c0-3-2-5-2-7V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2z"></path><line x1="6" x2="18" y1="8" y2="8"></line><line x1="10" x2="14" y1="13" y2="13"></line></svg><span class="uppercase font-medium text-xs tracking-wider">TORCH</span></button></div>
+</main>
+<!-- END: ViewfinderSection -->
+<!-- BEGIN: BottomControls -->
+<!-- Bottom control bar matching wireframe layout: Gallery, Capture Shutter, Rotate -->
+<footer class="w-full pt-4 pb-5 px-3 flex flex-col items-center justify-center relative" data-purpose="bottom-bar"><div class="w-full flex items-center justify-around max-w-[380px] px-2 py-3 bg-neutral-950/60 rounded-full border border-neutral-800/80 backdrop-blur-md shadow-2xl"><div class="flex flex-col items-center justify-center"><button id="gallery-button" aria-label="Open Gallery" class="btn-press w-14 h-14 rounded-full border border-neutral-700/80 bg-neutral-900/90 flex items-center justify-center text-neutral-200 hover:border-neutral-400 transition-all shadow-inner"><svg class="w-6 h-6 stroke-current fill-none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><rect height="18" rx="3" ry="3" width="18" x="3" y="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button><span class="text-[10px] font-medium tracking-wider text-neutral-400 mt-1 uppercase" style="font-family: &quot;Plus Jakarta Sans&quot;, -apple-system, sans-serif;">Gallery</span></div><div class="flex flex-col items-center justify-center"><button aria-label="Capture Photo" class="shutter-press relative flex items-center justify-center w-20 h-20 rounded-full border-2 border-white/80 p-1 bg-transparent hover:border-white transition-all cursor-pointer shadow-[0_0_20px_rgba(255,255,255,0.15)]" id="shutter-button"><span class="shutter-inner w-full h-full rounded-full bg-white transition-transform shadow-lg"></span></button></div><div class="flex flex-col items-center justify-center"><button aria-label="Rotate Camera" class="btn-press w-14 h-14 rounded-full border border-neutral-700/80 bg-neutral-900/90 flex items-center justify-center text-neutral-200 hover:border-neutral-400 transition-all shadow-inner" id="rotate-button"><svg class="w-6 h-6 stroke-current fill-none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M20 16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2h-3.17L15 3H9L7.17 5H4c-1.1 0-2 .9-2 2v7c0 1.1.9 2 2 2"></path><path d="M9 11a3.5 3.5 0 0 1 5.8-1.4l1.2-1.2"></path><polyline points="16 11 16 7.5 12.5 7.5"></polyline><path d="M15 13a3.5 3.5 0 0 1-5.8 1.4L8 15.6"></path><polyline points="8 13 8 16.5 11.5 16.5"></polyline></svg></button><span class="text-[10px] font-medium tracking-wider text-neutral-400 mt-1 uppercase" style="font-family: &quot;Plus Jakarta Sans&quot;, -apple-system, sans-serif;">Flip</span></div></div></footer>
+<!-- END: BottomControls -->
+<!-- Safe Area Home Indicator Bar (iOS Style) -->
+<div class="w-full flex justify-center pb-1">
+<div class="w-32 h-1 bg-neutral-700 rounded-full"></div>
+</div>
+</div>
+<!-- END: MobileContainer -->
+<!-- BEGIN: InteractivityScript -->
+<script data-purpose="toggle-interactions">
+    // Light toggling feedback for the flashlight button
+    const flashBtn = document.getElementById('flashlight-button');
+    let isFlashOn = false;
+    
+    flashBtn.addEventListener('click', () => {
+      isFlashOn = !isFlashOn;
+      if (isFlashOn) {
+        flashBtn.classList.remove('bg-neutral-950/70', 'border-neutral-400', 'text-neutral-200');
+        flashBtn.classList.add('bg-white', 'border-white', 'text-black');
+      } else {
+        flashBtn.classList.remove('bg-white', 'border-white', 'text-black');
+        flashBtn.classList.add('bg-neutral-950/70', 'border-neutral-400', 'text-neutral-200');
+      }
+    });
+
+    // Shutter button haptic visual simulation
+    const shutterBtn = document.getElementById('shutter-button');
+    shutterBtn.addEventListener('click', () => {
+      const inner = shutterBtn.querySelector('.shutter-inner');
+      inner.style.opacity = '0.4';
+      setTimeout(() => {
+        inner.style.opacity = '1';
+      }, 120);
+    });
+  </script>
+<!-- END: InteractivityScript -->
+
+
+
+
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,1031 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-bright": "#f8faf8", "on-primary": "#ffffff", "on-secondary-fixed-variant": "#284e43", "surface-container-highest": "#e1e3e1", "surface": "#f8faf8", "surface-container-lowest": "#ffffff", "tertiary-fixed": "#f4ded1", "secondary-fixed-dim": "#a7cfc1", "inverse-surface": "#2e3130", "secondary-fixed": "#c2ebdc", "error-container": "#ffdad6", "error": "#ba1a1a", "inverse-primary": "#9ed1bd", "inverse-on-surface": "#eff1ef", "surface-tint": "#376757", "on-secondary": "#ffffff", "surface-container": "#eceeec", "on-tertiary-container": "#c2afa2", "on-surface-variant": "#404945", "on-tertiary-fixed-variant": "#52443a", "on-surface": "#191c1b", "background": "#f8faf8", "primary-container": "#1b4d3e", "tertiary-fixed-dim": "#d7c3b5", "tertiary-container": "#504238", "surface-container-low": "#f2f4f2", "surface-container-high": "#e6e9e7", "on-error-container": "#93000a", "primary": "#003629", "on-tertiary-fixed": "#241911", "on-primary-fixed-variant": "#1d4f40", "on-tertiary": "#ffffff", "on-secondary-container": "#43685c", "surface-dim": "#d8dad9", "on-primary-container": "#8abda9", "outline": "#707974", "on-primary-fixed": "#002117", "outline-variant": "#c0c9c3", "on-secondary-fixed": "#002019", "primary-fixed": "#baeed9", "secondary": "#40665a", "primary-fixed-dim": "#9ed1bd", "on-background": "#191c1b", "tertiary": "#392c23", "secondary-container": "#bde6d7", "on-error": "#ffffff", "surface-variant": "#e1e3e1" }, "borderRadius": { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, "spacing": { "gutter": "0.75rem", "space-sm": "0.5rem", "margin": "1rem", "space-xs": "0.25rem", "space-xl": "1.5rem", "space-md": "0.75rem", "space-lg": "1rem" }, "fontFamily": { "body-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"] }, "fontSize": { "body-md": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-lg": ["22px", { "lineHeight": "28px", "fontWeight": "700" }], "headline-xl": ["28px", { "lineHeight": "34px", "fontWeight": "700" }], "label-lg": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "600" }], "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "label-md": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "body-lg": ["15px", { "lineHeight": "22px", "fontWeight": "500" }], "headline-sm": ["16px", { "lineHeight": "22px", "fontWeight": "600" }] } } } };</script><style>@layer base { html, body { width: 100vw; margin: 0; padding: 0; min-height: 100vh; background-color: #f8faf8; } body { overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } } ::-webkit-scrollbar { display: none; }</style><style>
+@keyframes modalScaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes modalScaleDown {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+@keyframes backdropFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes backdropFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.animate-scale-up {
+  animation: modalScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: center;
+}
+.animate-scale-down {
+  animation: modalScaleDown 0.19s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform-origin: center;
+}
+.animate-fade-in {
+  animation: backdropFadeIn 0.2s ease-out forwards;
+}
+.animate-fade-out {
+  animation: backdropFadeOut 0.19s ease-in forwards;
+}
+
+/* Card Dismiss Animation */
+.card-dismissing {
+  transition: opacity 0.26s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.26s cubic-bezier(0.4, 0, 0.2, 1),
+              max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.06s,
+              margin-top 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.06s,
+              margin-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.06s,
+              padding-top 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.06s,
+              padding-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.06s;
+  overflow: hidden !important;
+  pointer-events: none;
+}
+.card-dismissed {
+  opacity: 0 !important;
+  transform: scale(0.92) translateY(-6px) !important;
+  max-height: 0px !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  box-shadow: none !important;
+  border-width: 0px !important;
+}
+
+@keyframes pulseCheck {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.18); }
+  100% { transform: scale(1.05); }
+}
+.btn-done-pulse {
+  animation: pulseCheck 0.24s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Custom Active State for Horizontal Date Pills */
+.day-pill.is-active {
+  background-color: #66d488 !important;
+  color: #003629 !important;
+  box-shadow: 0 4px 12px -2px rgba(102, 212, 136, 0.45);
+}
+.day-pill.is-active .day-label {
+  color: #004d3b !important;
+  font-weight: 700 !important;
+}
+.day-pill.is-active .day-indicator-dot {
+  background-color: #003629 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scale-up,
+  .animate-scale-down,
+  .animate-fade-in,
+  .animate-fade-out,
+  .card-dismissing {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    transform: none !important;
+  }
+}
+</style></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Go back" class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors active:scale-95" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-md text-headline-md text-primary tracking-tight">Vaccination Schedule</h1></div><div class="flex items-center gap-space-xs justify-end"><div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[22px]">vaccines</span></div></div></div></header><main class="flex-1 w-full bg-surface pt-16 pb-20"><div class="flex flex-col w-full pb-8">
+<!-- Interactive Toast Notification container for delight feedback -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 transform flex items-center gap-space-sm px-space-lg py-space-sm bg-primary text-on-primary rounded-full shadow-lg opacity-0 -translate-y-12 pointer-events-none" id="toast-notification">
+<span class="material-symbols-outlined text-[18px] text-primary-fixed" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
+<span class="font-label-md text-label-md" id="toast-text">Showing all buffaloes</span>
+</div>
+<!-- Sub-Header Status Info & Quick Metric Card -->
+<div class="px-margin pt-space-xs pb-space-sm flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block">Livestock Health Docket</span>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold" id="current-date-header">Tue 10 Nov</p>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full font-semibold transition-all duration-200 bg-secondary-container text-primary" id="current-date-badge">Today</span>
+</div>
+<!-- 7-Day Horizontal Week Calendar Strip -->
+<div class="w-full overflow-x-auto no-scrollbar px-margin py-space-xs">
+<div class="flex items-center gap-space-xs min-w-max">
+<!-- Tue 10 (Selected Initially with #66d488 vibrant active accent) -->
+<button class="day-pill group relative flex flex-col items-center justify-center w-12 h-16 rounded-2xl shadow-sm transition-all duration-200 cursor-pointer active:scale-95 is-active" data-date="10" data-day="Tue" data-full-day="Tuesday" data-inactive-slot="&lt;span class=&quot;w-1.5 h-1.5 rounded-full bg-transparent&quot;&gt;&lt;/span&gt;" data-month="Nov" type="button" style="box-shadow: rgba(188, 229, 214, 0.45) 0px 4px 12px -2px; background-color: rgb(188, 229, 214) !important; color: rgb(0, 54, 41) !important;">
+<span class="day-label font-label-sm text-label-sm uppercase tracking-wider">Tue</span>
+<span class="font-headline-sm text-headline-sm font-bold mt-0.5">10</span>
+<div class="day-indicator-slot flex items-center justify-center mt-1 h-3.5"><span class="day-indicator-dot w-1.5 h-1.5 rounded-full bg-[#003629]"></span></div>
+</button>
+<!-- Wed 11 -->
+<button class="day-pill group relative flex flex-col items-center justify-center w-12 h-16 rounded-2xl shadow-sm transition-all duration-200 cursor-pointer active:scale-95 bg-surface-container-lowest text-on-surface hover:bg-surface-container-high" data-date="11" data-day="Wed" data-full-day="Wednesday" data-inactive-slot="
+&lt;span class=&quot;w-1.5 h-1.5 rounded-full bg-[#B26A00]&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;font-label-sm text-[9px] text-[#B26A00] font-bold&quot;&gt;1&lt;/span&gt;
+" data-month="Nov" type="button">
+<span class="day-label font-label-sm text-label-sm uppercase tracking-wider text-outline">Wed</span>
+<span class="font-headline-sm text-headline-sm font-bold mt-0.5">11</span>
+<div class="day-indicator-slot flex items-center gap-0.5 mt-1 h-3.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B26A00]"></span>
+<span class="font-label-sm text-[9px] text-[#B26A00] font-bold">1</span>
+</div>
+</button>
+<!-- Thu 12 -->
+<button class="day-pill group relative flex flex-col items-center justify-center w-12 h-16 rounded-2xl shadow-sm transition-all duration-200 cursor-pointer active:scale-95 bg-surface-container-lowest text-on-surface hover:bg-surface-container-high" data-date="12" data-day="Thu" data-full-day="Thursday" data-inactive-slot="
+&lt;span class=&quot;w-1.5 h-1.5 rounded-full bg-[#B26A00]&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;font-label-sm text-[9px] text-[#B26A00] font-bold&quot;&gt;1&lt;/span&gt;
+" data-month="Nov" type="button">
+<span class="day-label font-label-sm text-label-sm uppercase tracking-wider text-outline">Thu</span>
+<span class="font-headline-sm text-headline-sm font-bold mt-0.5">12</span>
+<div class="day-indicator-slot flex items-center gap-0.5 mt-1 h-3.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B26A00]"></span>
+<span class="font-label-sm text-[9px] text-[#B26A00] font-bold">1</span>
+</div>
+</button>
+<!-- Fri 13 -->
+<button class="day-pill group relative flex flex-col items-center justify-center w-12 h-16 rounded-2xl shadow-sm transition-all duration-200 cursor-pointer active:scale-95 bg-surface-container-lowest text-on-surface hover:bg-surface-container-high" data-date="13" data-day="Fri" data-full-day="Friday" data-inactive-slot="
+&lt;span class=&quot;w-1.5 h-1.5 rounded-full bg-[#B26A00]&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;font-label-sm text-[9px] text-[#B26A00] font-bold&quot;&gt;1&lt;/span&gt;
+" data-month="Nov" type="button">
+<span class="day-label font-label-sm text-label-sm uppercase tracking-wider text-outline">Fri</span>
+<span class="font-headline-sm text-headline-sm font-bold mt-0.5">13</span>
+<div class="day-indicator-slot flex items-center gap-0.5 mt-1 h-3.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B26A00]"></span>
+<span class="font-label-sm text-[9px] text-[#B26A00] font-bold">1</span>
+</div>
+</button>
+<!-- Sat 14 -->
+<button class="day-pill group relative flex flex-col items-center justify-center w-12 h-16 rounded-2xl shadow-sm transition-all duration-200 cursor-pointer active:scale-95 bg-surface-container-lowest text-on-surface hover:bg-surface-container-high" data-date="14" data-day="Sat" data-full-day="Saturday" data-inactive-slot="
+&lt;span class=&quot;w-1.5 h-1.5 rounded-full bg-transparent&quot;&gt;&lt;/span&gt;
+" data-month="Nov" type="button">
+<span class="day-label font-label-sm text-label-sm uppercase tracking-wider text-outline">Sat</span>
+<span class="font-headline-sm text-headline-sm font-bold mt-0.5">14</span>
+<div class="day-indicator-slot flex items-center justify-center mt-1 h-3.5">
+<span class="w-1.5 h-1.5 rounded-full bg-transparent"></span>
+</div>
+</button>
+<!-- Sun 15 -->
+<button class="day-pill group relative flex flex-col items-center justify-center w-12 h-16 rounded-2xl shadow-sm transition-all duration-200 cursor-pointer active:scale-95 bg-surface-container-lowest text-on-surface hover:bg-surface-container-high" data-date="15" data-day="Sun" data-full-day="Sunday" data-inactive-slot="
+&lt;span class=&quot;w-1.5 h-1.5 rounded-full bg-transparent&quot;&gt;&lt;/span&gt;
+" data-month="Nov" type="button">
+<span class="day-label font-label-sm text-label-sm uppercase tracking-wider text-outline">Sun</span>
+<span class="font-headline-sm text-headline-sm font-bold mt-0.5">15</span>
+<div class="day-indicator-slot flex items-center justify-center mt-1 h-3.5">
+<span class="w-1.5 h-1.5 rounded-full bg-transparent"></span>
+</div>
+</button>
+<!-- Mon 16 -->
+<button class="day-pill group relative flex flex-col items-center justify-center w-12 h-16 rounded-2xl shadow-sm transition-all duration-200 cursor-pointer active:scale-95 bg-surface-container-lowest text-on-surface hover:bg-surface-container-high" data-date="16" data-day="Mon" data-full-day="Monday" data-inactive-slot="
+&lt;span class=&quot;w-1.5 h-1.5 rounded-full bg-[#B26A00]&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;font-label-sm text-[9px] text-[#B26A00] font-bold&quot;&gt;1&lt;/span&gt;
+" data-month="Nov" type="button">
+<span class="day-label font-label-sm text-label-sm uppercase tracking-wider text-outline">Mon</span>
+<span class="font-headline-sm text-headline-sm font-bold mt-0.5">16</span>
+<div class="day-indicator-slot flex items-center gap-0.5 mt-1 h-3.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B26A00]"></span>
+<span class="font-label-sm text-[9px] text-[#B26A00] font-bold">1</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Summary Counter Tonal Bar -->
+<div class="px-margin mt-space-md">
+<div class="w-full bg-surface-container-lowest rounded-2xl p-space-sm shadow-sm flex items-center justify-between gap-space-xs">
+<!-- Overdue Counter -->
+<div class="flex-1 flex items-center justify-center gap-space-xs py-2 px-1 bg-[#ffdad6]/40 rounded-xl" id="badge-wrapper-overdue">
+<span class="w-2.5 h-2.5 rounded-full bg-[#ba1a1a]"></span>
+<span class="font-label-md text-label-md text-[#ba1a1a] font-bold tracking-tight" id="badge-count-overdue">1 overdue</span>
+</div>
+<!-- This Week Counter -->
+<div class="flex-1 flex items-center justify-center gap-space-xs py-2 px-1 bg-tertiary-fixed/40 rounded-xl" id="badge-wrapper-this-week">
+<span class="w-2.5 h-2.5 rounded-full bg-[#B26A00]"></span>
+<span class="font-label-md text-label-md text-[#B26A00] font-bold tracking-tight" id="badge-count-this-week">1 this week</span>
+</div>
+<!-- Upcoming Counter -->
+<div class="flex-1 flex items-center justify-center gap-space-xs py-2 px-1 bg-surface-container-high/60 rounded-xl" id="badge-wrapper-later">
+<span class="w-2.5 h-2.5 rounded-full bg-[#6B7468]"></span>
+<span class="font-label-md text-label-md text-[#6B7468] font-bold tracking-tight" id="badge-count-later">0 later</span>
+</div>
+</div>
+</div>
+<!-- Species Filter Chips & Vaccination-Type Selector -->
+<div class="px-margin mt-space-md flex flex-col gap-space-sm">
+<!-- Filter Chips Carousel -->
+<div class="w-full overflow-x-auto no-scrollbar">
+<div class="flex items-center gap-space-xs min-w-max py-0.5"><button class="filter-chip px-space-md py-1.5 rounded-full font-label-md text-label-md transition-transform active:scale-95 bg-surface-container-lowest text-on-surface-variant" data-filter="all" type="button">
+  All
+</button>
+<button class="filter-chip px-space-md py-1.5 rounded-full font-label-md text-label-md transition-transform active:scale-95 bg-surface-container-lowest text-on-surface-variant" data-filter="cow" type="button">
+  Cows
+</button>
+<button class="filter-chip px-space-md py-1.5 rounded-full font-label-md text-label-md hover:bg-surface-container transition-transform active:scale-95 bg-surface-container-lowest text-on-surface-variant" data-filter="buffalo" type="button">
+  Buffaloes
+</button>
+<button class="filter-chip px-space-md py-1.5 rounded-full font-label-md text-label-md hover:bg-surface-container transition-transform active:scale-95 bg-surface-container-lowest text-on-surface-variant" data-filter="goat" type="button">
+  Goats
+</button>
+<button class="filter-chip px-space-md py-1.5 rounded-full font-label-md text-label-md hover:bg-surface-container transition-transform active:scale-95 bg-[#bce5d6] text-[#003629] font-bold shadow-sm" data-filter="hen" type="button">
+  Hens
+</button></div>
+</div>
+<!-- Vaccination-type dropdown selector -->
+<div class="relative w-full">
+<button class="w-full bg-surface-container-lowest text-on-surface flex items-center justify-between px-space-md py-2.5 rounded-full shadow-sm hover:bg-surface-container-low transition-colors" id="vac-type-btn" type="button">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">filter_list</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface" id="vac-type-label">All vaccinations</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-outline">arrow_drop_down</span>
+</button>
+<!-- Hidden Dropdown Menu -->
+<div class="absolute left-0 right-0 top-12 mt-1 z-30 bg-surface-container-lowest rounded-2xl shadow-xl p-space-xs flex flex-col gap-1 border-0 hidden" id="vac-type-menu" onclick="const btn = event.target.closest('.vac-option'); if (!btn) return; const text = btn.dataset.type; const label = document.getElementById('vac-type-label'); if (label) label.textContent = text; this.classList.add('hidden'); this.querySelectorAll('.vac-option').forEach(opt =&gt; { opt.classList.remove('text-on-surface'); opt.classList.add('text-on-surface-variant'); const check = opt.querySelector('.material-symbols-outlined'); if (check) check.remove(); }); btn.classList.remove('text-on-surface-variant'); btn.classList.add('text-on-surface'); const checkIcon = document.createElement('span'); checkIcon.className = 'material-symbols-outlined text-[16px] text-primary'; checkIcon.textContent = 'check'; btn.appendChild(checkIcon); const toast = document.getElementById('toast-notification'); const toastText = document.getElementById('toast-text'); if (toast &amp;&amp; toastText) { toastText.textContent = 'Filtered: ' + text; toast.classList.remove('opacity-0', '-translate-y-12', 'pointer-events-none'); toast.classList.add('opacity-100', 'translate-y-0'); setTimeout(() =&gt; { toast.classList.add('opacity-0', '-translate-y-12', 'pointer-events-none'); toast.classList.remove('opacity-100', 'translate-y-0'); }, 2500); }"><button class="vac-option text-left px-space-md py-2 rounded-xl hover:bg-surface-container font-body-md text-body-md text-on-surface flex items-center justify-between" data-type="All vaccinations" type="button">
+<span>All vaccinations</span>
+<div class="flex items-center gap-space-xs ml-auto">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-primary font-semibold text-[12px]">9</span>
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+</div>
+</button>
+<button class="vac-option text-left px-space-md py-2 rounded-xl hover:bg-surface-container font-body-md text-body-md text-on-surface-variant flex items-center justify-between" data-type="Age-based" type="button">
+<span>Age-based</span>
+<div class="flex items-center gap-space-xs ml-auto">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-semibold text-[12px]">4</span>
+</div>
+</button>
+<button class="vac-option text-left px-space-md py-2 rounded-xl hover:bg-surface-container font-body-md text-body-md text-on-surface-variant flex items-center justify-between" data-type="Booster" type="button">
+<span>Booster</span>
+<div class="flex items-center gap-space-xs ml-auto">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-semibold text-[12px]">2</span>
+</div>
+</button>
+<button class="vac-option text-left px-space-md py-2 rounded-xl hover:bg-surface-container font-body-md text-body-md text-on-surface-variant flex items-center justify-between" data-type="Recurring" type="button">
+<span>Recurring</span>
+<div class="flex items-center gap-space-xs ml-auto">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-semibold text-[12px]">2</span>
+</div>
+</button>
+<button class="vac-option text-left px-space-md py-2 rounded-xl hover:bg-surface-container font-body-md text-body-md text-on-surface-variant flex items-center justify-between" data-type="One-time" type="button">
+<span>One-time</span>
+<div class="flex items-center gap-space-xs ml-auto">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-semibold text-[12px]">1</span>
+</div>
+</button>
+<button class="vac-option text-left px-space-md py-2 rounded-xl hover:bg-surface-container font-body-md text-body-md text-on-surface-variant flex items-center justify-between" data-type="Season-based" type="button">
+<span>Season-based</span>
+<div class="flex items-center gap-space-xs ml-auto">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-semibold text-[12px]">1</span>
+</div>
+</button></div>
+</div><button id="female-only-badge" type="button" aria-pressed="false" class="items-center gap-1.5 px-3 py-1.5 rounded-full border font-label-md text-label-md transition-all self-start shadow-sm cursor-pointer hover:bg-surface-container active:scale-95 bg-surface-container-lowest text-on-surface-variant border-outline-variant/60 hidden" onclick="(function(btn){ const isActive = btn.getAttribute('aria-pressed') === 'true'; const newState = !isActive; btn.setAttribute('aria-pressed', String(newState)); const dot = btn.querySelector('.gender-toggle-icon'); if (newState) { btn.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant', 'border-outline-variant/60'); btn.classList.add('bg-[#ffdad6]', 'text-[#ba1a1a]', 'border-[#ba1a1a]', 'font-bold'); if (dot) dot.textContent = 'check_circle'; } else { btn.classList.add('bg-surface-container-lowest', 'text-on-surface-variant', 'border-outline-variant/60'); btn.classList.remove('bg-[#ffdad6]', 'text-[#ba1a1a]', 'border-[#ba1a1a]', 'font-bold'); if (dot) dot.textContent = 'female'; } const activeChip = document.querySelector('.filter-chip.bg-primary'); const activeSpecies = activeChip ? activeChip.dataset.filter : 'all'; document.querySelectorAll('.vaccine-card').forEach(card =&gt; { if (card.classList.contains('card-dismissed')) return; const cardSpecies = card.dataset.species; const isMale = card.dataset.gender === 'male'; const matchesSpecies = (activeSpecies === 'all' || cardSpecies === activeSpecies); if (matchesSpecies) { if (newState &amp;&amp; isMale) { card.classList.add('hidden'); } else { card.classList.remove('hidden'); } } }); const toast = document.getElementById('toast-notification'); const toastText = document.getElementById('toast-text'); if (toast &amp;&amp; toastText) { const speciesName = activeSpecies === 'buffalo' ? 'buffaloes' : (activeSpecies === 'cow' ? 'cows' : 'livestock'); toastText.textContent = newState ? 'Filter: Female Only ' + speciesName : 'Showing all ' + speciesName; toast.classList.remove('opacity-0', '-translate-y-12', 'pointer-events-none'); toast.classList.add('opacity-100', 'translate-y-0'); setTimeout(() =&gt; { toast.classList.add('opacity-0', '-translate-y-12', 'pointer-events-none'); toast.classList.remove('opacity-100', 'translate-y-0'); }, 2000); } })(this);"><span class="material-symbols-outlined text-[16px] gender-toggle-icon">female</span><span>Female Only💉🎀</span></button><div id="hen-toggle-container" class="items-center gap-1.5 self-start flex-wrap flex"><button id="hen-type-all" type="button" data-hen-filter="all" class="hen-filter-pill px-3 py-1.5 rounded-full border font-label-md text-label-md transition-all shadow-sm cursor-pointer active:scale-95 flex items-center gap-1 bg-[#bce5d6] text-[#003629] border-transparent font-bold" style="box-shadow: rgba(188, 229, 214, 0.45) 0px 4px 12px -2px;">
+    <span>All Hens</span>
+  </button>
+  <button id="hen-type-broiler" type="button" data-hen-filter="broiler" class="hen-filter-pill px-3 py-1.5 rounded-full border font-label-md text-label-md transition-all shadow-sm cursor-pointer hover:bg-surface-container active:scale-95 flex items-center gap-1 bg-surface-container-lowest text-on-surface-variant border-outline-variant/60">
+    <span>Broiler 🐔</span>
+  </button>
+  <button id="hen-type-layer" type="button" data-hen-filter="layer" class="hen-filter-pill px-3 py-1.5 rounded-full border font-label-md text-label-md transition-all shadow-sm cursor-pointer hover:bg-surface-container active:scale-95 flex items-center gap-1 bg-surface-container-lowest text-on-surface-variant border-outline-variant/60">
+    <span>Layer 🐣</span>
+  </button></div>
+</div>
+<!-- Day-Specific Empty State Notice (shown when a day like Sat 14 or Sun 15 has no tasks) -->
+<div class="px-margin mt-space-lg hidden" id="day-empty-state">
+<div class="w-full bg-surface-container-lowest rounded-2xl p-space-xl text-center flex flex-col items-center justify-center gap-space-sm border border-dashed border-outline-variant/70 shadow-sm">
+<div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: &quot;FILL&quot; 1;">nature_people</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold" id="day-empty-title">No vaccinations scheduled for Sunday, 15 Nov</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs" id="day-empty-desc">All livestock are healthy and clear of due dates for Sunday.</p>
+<button class="mt-2 px-space-md py-2 rounded-full bg-surface-container text-primary font-label-md text-label-md hover:bg-surface-container-high transition-transform active:scale-95 flex items-center gap-1.5" id="reset-to-today-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span>Back to Today (Tue 10)</span>
+</button>
+</div>
+</div>
+<!-- Section 1: Overdue (3) in red -->
+<div class="px-margin mt-space-xl vaccination-group" data-date="10" data-group="overdue">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-[#ba1a1a]"></div>
+<h2 class="font-headline-sm text-headline-sm text-[#ba1a1a] font-bold">Overdue</h2>
+</div>
+<span class="font-label-sm text-label-sm text-[#ba1a1a] bg-[#ffdad6] px-space-sm py-0.5 rounded-full font-bold">Requires Action</span>
+</div>
+<div class="cards-container flex flex-col gap-space-sm">
+<!-- Card 1: Cow 1 (Gauri) -->
+<div class="vaccine-card relative w-full bg-surface-container-lowest rounded-2xl p-space-md shadow-sm overflow-hidden flex items-center justify-between hidden" data-date="10" data-species="cow" data-gender="female">
+<!-- Red left accent strip -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#ba1a1a]"></div>
+<div class="flex items-center gap-space-md pl-1">
+<!-- Tactile Avatar Badge -->
+<div class="w-12 h-12 rounded-full bg-[#ffdad6] text-[#ba1a1a] flex items-center justify-center font-headline-sm text-headline-sm font-bold flex-shrink-0">
+            C
+          </div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface truncate">Daisy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">FMD, booster</p>
+<span class="font-label-sm text-label-sm text-[#ba1a1a] font-semibold mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+              Booster · 5 days overdue
+            </span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<button aria-label="Reschedule Cow 1" class="action-reschedule w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-transform active:scale-95" data-name="Cow 1 (Gauri)" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+</button>
+<button aria-label="Mark done Cow 1" class="action-done w-10 h-10 rounded-full bg-secondary-container text-on-secondary-fixed-variant hover:bg-primary hover:text-on-primary flex items-center justify-center transition-all active:scale-95 shadow-sm" data-name="Cow 1 (Gauri)" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: &quot;FILL&quot; 1;">check</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Goat 4 (Bhuri) -->
+
+<!-- Card 3: Hen Flock 2 -->
+
+<!-- Card 3: Hen Flock 2 (Layer) -->
+<div class="vaccine-card relative w-full bg-surface-container-lowest rounded-2xl p-space-md shadow-sm overflow-hidden flex items-center justify-between" data-date="10" data-species="hen" data-hen-type="layer" data-gender="female">
+  <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#ba1a1a]"></div>
+  <div class="flex items-center gap-space-md pl-1">
+    <div class="w-12 h-12 rounded-full bg-[#ffdad6] text-[#ba1a1a] flex items-center justify-center font-headline-sm text-headline-sm font-bold flex-shrink-0">
+      H
+    </div>
+    <div class="flex flex-col min-w-0">
+      <h3 class="font-body-lg text-body-lg font-bold text-on-surface truncate">Flock 2, layers (50)</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant font-medium">NDV Lasota, oral drop</p>
+      <span class="font-label-sm text-label-sm text-[#ba1a1a] font-semibold mt-0.5 flex items-center gap-1">
+        <span class="material-symbols-outlined text-[12px]">schedule</span>
+        Layer Flock · 2 days overdue
+      </span>
+    </div>
+  </div>
+  <div class="flex items-center gap-space-xs flex-shrink-0">
+    <button aria-label="Reschedule Hen Flock 2" class="action-reschedule w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-transform active:scale-95" data-name="Flock 2 (Layers)" type="button">
+      <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+    </button>
+    <button aria-label="Mark done Hen Flock 2" class="action-done w-10 h-10 rounded-full bg-secondary-container text-on-secondary-fixed-variant hover:bg-primary hover:text-on-primary flex items-center justify-center transition-all active:scale-95 shadow-sm" data-name="Flock 2 (Layers)" type="button">
+      <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: &quot;FILL&quot; 1;">check</span>
+    </button>
+  </div>
+</div></div>
+<!-- Empty State Placeholder (hidden initially) -->
+<div class="empty-state-card w-full bg-surface-container-lowest rounded-2xl p-space-lg text-center flex flex-col items-center justify-center gap-space-xs border border-dashed border-outline-variant/60 shadow-sm hidden">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: &quot;FILL&quot; 1;">task_alt</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold">All caught up!</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">No overdue vaccinations. All records are up to date.</p>
+</div>
+</div>
+<!-- Section 2: This week (4) in amber -->
+<div class="px-margin mt-space-xl vaccination-group" data-group="this-week">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-[#B26A00]"></div>
+<h2 class="font-headline-sm text-headline-sm text-[#B26A00] font-bold" id="this-week-header-title">This week</h2>
+</div>
+<span class="font-label-sm text-label-sm text-[#504238] bg-tertiary-fixed px-space-sm py-0.5 rounded-full font-bold" id="this-week-header-badge">Priority Schedule</span>
+</div>
+<div class="cards-container flex flex-col gap-space-sm"><!-- Card 4: Flock 1, broilers (120) - Wed 11 -->
+<div class="vaccine-card relative w-full bg-surface-container-lowest rounded-2xl p-space-md shadow-sm overflow-hidden flex items-center justify-between" data-date="11" data-species="hen" data-hen-type="broiler" data-gender="female">
+  <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#B26A00]"></div>
+  <div class="flex items-center gap-space-md pl-1">
+    <div class="w-12 h-12 rounded-full bg-tertiary-fixed text-[#504238] flex items-center justify-center font-headline-sm text-headline-sm font-bold flex-shrink-0">
+      H
+    </div>
+    <div class="flex flex-col min-w-0">
+      <h3 class="font-body-lg text-body-lg font-bold text-on-surface truncate">Flock 1, broilers (120)</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant font-medium">IBD Gumboro, water</p>
+      <span class="font-label-sm text-label-sm text-[#B26A00] font-semibold mt-0.5 flex items-center gap-1">
+        <span class="material-symbols-outlined text-[12px]">schedule</span>
+        Broiler Flock · In 1 day
+      </span>
+    </div>
+  </div>
+  <div class="flex items-center gap-space-xs flex-shrink-0">
+    <button aria-label="Reschedule Hen Flock 1" class="action-reschedule w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-transform active:scale-95" data-name="Flock 1 (Broilers)" type="button">
+      <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+    </button>
+    <button aria-label="Mark done Hen Flock 1" class="action-done w-10 h-10 rounded-full bg-secondary-container text-on-secondary-fixed-variant hover:bg-primary hover:text-on-primary flex items-center justify-center transition-all active:scale-95 shadow-sm" data-name="Flock 1 (Broilers)" type="button">
+      <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: &quot;FILL&quot; 1;">check</span>
+    </button>
+  </div>
+</div>
+<!-- Card 4: Flock 1, broilers (120) - Wed 11 -->
+
+<!-- Card 5: Buffalo 1 (Kali) - Thu 12 -->
+<div class="vaccine-card relative w-full bg-surface-container-lowest rounded-2xl p-space-md shadow-sm overflow-hidden flex items-center justify-between hidden" data-date="12" data-species="buffalo" data-gender="female">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#B26A00]"></div>
+<div class="flex items-center gap-space-md pl-1">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-[#504238] flex items-center justify-center font-headline-sm text-headline-sm font-bold flex-shrink-0">
+            B
+          </div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface truncate">Bullso</h3>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">Brucellosis</p>
+<span class="font-label-sm text-label-sm text-[#B26A00] font-semibold mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span>2 vaccines · In 2 days
+            </span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<button aria-label="Reschedule Buffalo 1" class="action-reschedule w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-transform active:scale-95" data-name="Buffalo 1 (Kali)" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+</button>
+<button aria-label="Mark done Buffalo 1" class="action-done w-10 h-10 rounded-full bg-secondary-container text-on-secondary-fixed-variant hover:bg-primary hover:text-on-primary flex items-center justify-center transition-all active:scale-95 shadow-sm" data-name="Buffalo 1 (Kali)" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: &quot;FILL&quot; 1;">check</span>
+</button>
+</div>
+</div>
+<!-- Card 6: Goat 3 (Moti) - Fri 13 -->
+
+<!-- Card 7: Cow 2 (Lakshmi) - Mon 16 -->
+<div class="vaccine-card relative w-full bg-surface-container-lowest rounded-2xl p-space-md shadow-sm overflow-hidden flex items-center justify-between hidden" data-date="16" data-species="cow" data-gender="female">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#B26A00]"></div>
+<div class="flex items-center gap-space-md pl-1">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-[#504238] flex items-center justify-center font-headline-sm text-headline-sm font-bold flex-shrink-0">
+            C
+          </div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface truncate">Sumo</h3>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">HS, yearly</p>
+<span class="font-label-sm text-label-sm text-[#B26A00] font-semibold mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span>2 vaccines · In 6 days
+            </span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<button aria-label="Reschedule Cow 2" class="action-reschedule w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-transform active:scale-95" data-name="Cow 2 (Lakshmi)" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+</button>
+<button aria-label="Mark done Cow 2" class="action-done w-10 h-10 rounded-full bg-secondary-container text-on-secondary-fixed-variant hover:bg-primary hover:text-on-primary flex items-center justify-center transition-all active:scale-95 shadow-sm" data-name="Cow 2 (Lakshmi)" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: &quot;FILL&quot; 1;">check</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Empty State Placeholder (hidden initially) -->
+<div class="empty-state-card w-full bg-surface-container-lowest rounded-2xl p-space-lg text-center flex flex-col items-center justify-center gap-space-xs border border-dashed border-outline-variant/60 shadow-sm hidden">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed/60 flex items-center justify-center text-tertiary mb-1">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: &quot;FILL&quot; 1;">event_available</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold">No vaccinations this week</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">All upcoming doses scheduled for this week are completed.</p>
+</div>
+</div>
+<!-- Section 3: Later (2) in grey -->
+<div class="px-margin mt-space-xl vaccination-group" data-group="later">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-[#6B7468]"></div>
+<h2 class="font-headline-sm text-headline-sm text-[#6B7468] font-bold">Later (Next 30 days)</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-space-sm py-0.5 rounded-full font-bold">Planned Routine</span>
+</div>
+<div class="cards-container flex flex-col gap-space-sm">
+<!-- Card 8: Cow 3 (Nandi) -->
+<div class="vaccine-card relative w-full bg-surface-container-lowest rounded-2xl p-space-md shadow-sm overflow-hidden flex items-center justify-between hidden" data-date="later" data-species="cow" data-gender="male">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-[#6B7468]"></div>
+<div class="flex items-center gap-space-md pl-1">
+<div class="w-12 h-12 rounded-full bg-surface-container-high text-[#6B7468] flex items-center justify-center font-headline-sm text-headline-sm font-bold flex-shrink-0">
+            C
+          </div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface truncate">Momo</h3>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium">Theileriosis</p>
+<span class="font-label-sm text-label-sm text-[#6B7468] font-semibold mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+              One-time +1 · In 8 days
+            </span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<button aria-label="Reschedule Cow 3" class="action-reschedule w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-transform active:scale-95" data-name="Cow 3 (Nandi)" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+</button>
+<button aria-label="Mark done Cow 3" class="action-done w-10 h-10 rounded-full bg-secondary-container text-on-secondary-fixed-variant hover:bg-primary hover:text-on-primary flex items-center justify-center transition-all active:scale-95 shadow-sm" data-name="Cow 3 (Nandi)" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: &quot;FILL&quot; 1;">check</span>
+</button>
+</div>
+</div>
+<!-- Card 9: Hen Flock 2 booster -->
+
+</div>
+<!-- Empty State Placeholder (hidden initially) -->
+<div class="empty-state-card w-full bg-surface-container-lowest rounded-2xl p-space-lg text-center flex flex-col items-center justify-center gap-space-xs border border-dashed border-outline-variant/60 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-[#6B7468] mb-1">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-bold">All planned routines clear</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">No remaining routine doses for this period.</p>
+</div>
+</div>
+<!-- Warm Pastoral Banner Card to encourage routine checkups -->
+<div class="px-margin mt-space-xl">
+</div>
+<!-- Reschedule Bottom Sheet Modal Dialog (Hidden by Default) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-xs flex items-center justify-center p-space-md opacity-0 transition-opacity duration-200 animate-fade-in" id="reschedule-modal">
+<div class="bg-surface-container-lowest w-full rounded-3xl p-space-lg max-h-[85vh] overflow-y-auto shadow-xl animate-scale-up" id="reschedule-modal-card">
+<div class="w-10 h-1 bg-surface-container-highest rounded-full mx-auto mb-space-md"></div>
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Reschedule Dose</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium" id="reschedule-target-name">Flock 2 (Layers)</p>
+</div>
+<button aria-label="Close modal" class="w-9 h-9 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors flex items-center justify-center text-on-surface-variant" id="close-reschedule-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Date Presets -->
+<div class="flex flex-col gap-space-sm mb-space-lg"><label class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Suggested Dates</label><div class="grid grid-cols-3 gap-space-xs"><button class="reschedule-date-btn py-2 px-1 rounded-xl bg-[#bce5d6] text-[#003629] font-label-md text-label-md font-bold transition-all text-center border border-primary/20" data-date-str="Wed, 11 Nov (Tomorrow)" type="button">Tomorrow</button><button class="reschedule-date-btn py-2 px-1 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md hover:bg-secondary-container transition-all text-center border border-transparent" data-date-str="Fri, 13 Nov (In 3 Days)" type="button">In 3 Days</button><button class="reschedule-date-btn py-2 px-1 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md hover:bg-secondary-container transition-all text-center border border-transparent" data-date-str="Tue, 17 Nov (Next Week)" type="button">Next Week</button></div><div class="mt-1"><label class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-1">Or Pick Custom Date</label><div class="relative w-full flex items-center justify-between px-space-md py-2.5 rounded-full bg-surface-container-low border border-outline-variant/60 hover:border-primary transition-all text-on-surface"><div class="flex items-center gap-space-sm pointer-events-none"><span class="material-symbols-outlined text-[20px] text-primary">calendar_today</span><span class="font-label-md text-label-md font-medium text-on-surface" id="custom-date-display">Select Custom Date</span></div><span class="material-symbols-outlined text-[18px] text-outline pointer-events-none">edit_calendar</span><input aria-label="Select custom date" class="absolute inset-0 opacity-0 w-full h-full cursor-pointer" id="custom-date-input" type="date"></div></div><div class="mt-2 p-space-xs px-space-md rounded-xl bg-surface-container-low flex items-center justify-between border border-outline-variant/40"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-primary">event_available</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Selected:</span></div><span class="font-label-md text-label-md text-primary font-bold" id="selected-reschedule-summary">Wed, 11 Nov (Tomorrow)</span></div></div>
+<div class="flex items-center gap-space-sm">
+<button class="py-3 px-space-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant rounded-full font-label-lg text-label-lg active:scale-98 transition-transform" id="cancel-reschedule-btn" type="button">
+  Cancel
+</button>
+<button class="flex-1 py-3 bg-[#bce5d6] text-[#003629] font-bold rounded-full font-label-lg text-label-lg shadow-md active:scale-98 transition-transform" id="confirm-reschedule-btn" type="button">
+  Confirm New Date
+</button>
+</div><script>(function initReschedulePicker() { const summary = document.getElementById('selected-reschedule-summary'); const dateInput = document.getElementById('custom-date-input'); const customDisplay = document.getElementById('custom-date-display'); const presetBtns = document.querySelectorAll('.reschedule-date-btn'); presetBtns.forEach(btn => { btn.addEventListener('click', (e) => { e.stopPropagation(); presetBtns.forEach(b => { b.classList.remove('bg-secondary-container', 'text-primary', 'font-bold', 'border-primary/20'); b.classList.add('bg-surface-container-low', 'text-on-surface', 'border-transparent'); }); btn.classList.remove('bg-surface-container-low', 'text-on-surface', 'border-transparent'); btn.classList.add('bg-secondary-container', 'text-primary', 'font-bold', 'border-primary/20'); const val = btn.dataset.dateStr || btn.textContent; if (summary) summary.textContent = val; if (customDisplay) customDisplay.textContent = 'Select Custom Date'; if (dateInput) dateInput.value = ''; }); }); if (dateInput) { dateInput.addEventListener('change', (e) => { const chosenVal = e.target.value; if (!chosenVal) return; const d = new Date(chosenVal + 'T00:00:00'); const options = { weekday: 'short', day: 'numeric', month: 'short' }; const formatted = d.toLocaleDateString('en-GB', options); if (customDisplay) customDisplay.textContent = formatted; if (summary) summary.textContent = formatted + ' (Custom)'; presetBtns.forEach(b => { b.classList.remove('bg-secondary-container', 'text-primary', 'font-bold', 'border-primary/20'); b.classList.add('bg-surface-container-low', 'text-on-surface', 'border-transparent'); }); }); } })();</script>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    const toast = document.getElementById('toast-notification');
+    const toastText = document.getElementById('toast-text');
+
+    let toastTimer = null;
+    function showToast(msg) {
+      if (!toast) return;
+      if (toastTimer) clearTimeout(toastTimer);
+      toastText.textContent = msg;
+      toast.classList.remove('opacity-0', '-translate-y-12', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      toastTimer = setTimeout(() => {
+        toast.classList.add('opacity-0', '-translate-y-12', 'pointer-events-none');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2500);
+    }
+
+    // Active state tracker
+    let selectedDate = '10';
+    let currentSpeciesFilter = 'all';
+
+    // References to groups and day-empty-state
+    const overdueGroup = document.querySelector('.vaccination-group[data-group="overdue"]');
+    const thisWeekGroup = document.querySelector('.vaccination-group[data-group="this-week"]');
+    const laterGroup = document.querySelector('.vaccination-group[data-group="later"]');
+    const dayEmptyState = document.getElementById('day-empty-state');
+    const dayEmptyTitle = document.getElementById('day-empty-title');
+    const dayEmptyDesc = document.getElementById('day-empty-desc');
+    const thisWeekHeaderTitle = document.getElementById('this-week-header-title');
+    const thisWeekHeaderBadge = document.getElementById('this-week-header-badge');
+    const currentDateBadge = document.getElementById('current-date-badge');
+    const badgeOverdue = document.getElementById('badge-count-overdue');
+    const badgeThisWeek = document.getElementById('badge-count-this-week');
+    const badgeLater = document.getElementById('badge-count-later');
+
+    // Counts tracker
+    function updateSummaryBar(overdueCount, thisWeekCount, laterCount) {
+      if (badgeOverdue) badgeOverdue.textContent = `${overdueCount} overdue`;
+      if (badgeThisWeek) {
+        if (selectedDate === '10') {
+          badgeThisWeek.textContent = `${thisWeekCount} this week`;
+        } else {
+          badgeThisWeek.textContent = `${thisWeekCount} scheduled`;
+        }
+      }
+      if (badgeLater) badgeLater.textContent = `${laterCount} later`;
+
+      const overdueWrapper = document.getElementById('badge-wrapper-overdue');
+      const laterWrapper = document.getElementById('badge-wrapper-later');
+      if (overdueWrapper) {
+        if (selectedDate !== '10' && overdueCount === 0) {
+          overdueWrapper.classList.add('opacity-40');
+        } else {
+          overdueWrapper.classList.remove('opacity-40');
+        }
+      }
+      if (laterWrapper) {
+        if (selectedDate !== '10') {
+          laterWrapper.classList.add('opacity-40');
+        } else {
+          laterWrapper.classList.remove('opacity-40');
+        }
+      }
+    }
+
+    // Combined filter function for date + species
+    function applyFilters() {
+      const allCards = document.querySelectorAll('.vaccine-card');
+      let visibleOverdue = 0;
+      let visibleThisWeek = 0;
+      let visibleLater = 0;
+
+      if (selectedDate === '10') {
+        // Tue 10 (Today view): show Overdue, This Week, and Later sections
+        if (overdueGroup) overdueGroup.classList.remove('hidden');
+        if (thisWeekGroup) thisWeekGroup.classList.remove('hidden');
+        if (laterGroup) laterGroup.classList.remove('hidden');
+        if (dayEmptyState) dayEmptyState.classList.add('hidden');
+
+        if (thisWeekHeaderTitle) thisWeekHeaderTitle.textContent = 'This week';
+        if (thisWeekHeaderBadge) thisWeekHeaderBadge.textContent = 'Priority Schedule';
+        if (currentDateBadge) {
+          currentDateBadge.textContent = 'Today';
+          currentDateBadge.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+          currentDateBadge.classList.add('bg-secondary-container', 'text-primary');
+        }
+
+        allCards.forEach(card => {
+          if (card.classList.contains('card-dismissed')) return;
+          const matchSpecies = (currentSpeciesFilter === 'all' || card.dataset.species === currentSpeciesFilter);
+          if (matchSpecies) {
+            card.classList.remove('hidden');
+            const grp = card.closest('.vaccination-group');
+            if (grp && grp.dataset.group === 'overdue') visibleOverdue++;
+            if (grp && grp.dataset.group === 'this-week') visibleThisWeek++;
+            if (grp && grp.dataset.group === 'later') visibleLater++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        // Check empty states inside groups
+        [overdueGroup, thisWeekGroup, laterGroup].forEach(checkSectionEmpty);
+        updateSummaryBar(visibleOverdue, visibleThisWeek, visibleLater);
+
+      } else {
+        // Specific Day selected (Wed 11, Thu 12, Fri 13, Sat 14, Sun 15, Mon 16)
+        if (overdueGroup) overdueGroup.classList.add('hidden');
+        if (laterGroup) laterGroup.classList.add('hidden');
+
+        // Target active day pill
+        const activePill = document.querySelector(`.day-pill[data-date="${selectedDate}"]`);
+        const fullDay = activePill ? activePill.dataset.fullDay : 'Day';
+        const dayNum = activePill ? activePill.dataset.date : selectedDate;
+        const month = activePill ? activePill.dataset.month : 'Nov';
+
+        if (currentDateBadge) {
+          currentDateBadge.textContent = `${fullDay}`;
+          currentDateBadge.classList.remove('bg-secondary-container', 'text-primary');
+          currentDateBadge.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+        }
+
+        if (thisWeekHeaderTitle) thisWeekHeaderTitle.textContent = `Due ${fullDay}, ${dayNum} ${month}`;
+        if (thisWeekHeaderBadge) thisWeekHeaderBadge.textContent = 'Scheduled Dose';
+
+        let countForDay = 0;
+        allCards.forEach(card => {
+          if (card.classList.contains('card-dismissed')) return;
+          const cardDate = card.dataset.date;
+          const matchDate = (cardDate === selectedDate);
+          const matchSpecies = (currentSpeciesFilter === 'all' || card.dataset.species === currentSpeciesFilter);
+
+          if (matchDate && matchSpecies) {
+            card.classList.remove('hidden');
+            countForDay++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (countForDay > 0) {
+          if (thisWeekGroup) thisWeekGroup.classList.remove('hidden');
+          if (dayEmptyState) dayEmptyState.classList.add('hidden');
+          const emptyCard = thisWeekGroup ? thisWeekGroup.querySelector('.empty-state-card') : null;
+          if (emptyCard) emptyCard.classList.add('hidden');
+        } else {
+          // Zero tasks for this day (e.g. Sat 14, Sun 15)
+          if (thisWeekGroup) thisWeekGroup.classList.add('hidden');
+          if (dayEmptyState) {
+            dayEmptyState.classList.remove('hidden');
+            if (dayEmptyTitle) dayEmptyTitle.textContent = `No vaccinations scheduled for ${fullDay}, ${dayNum} ${month}`;
+            if (dayEmptyDesc) dayEmptyDesc.textContent = `All livestock are healthy and clear of due dates for ${fullDay}.`;
+          }
+        }
+
+        updateSummaryBar(0, countForDay, 0);
+      }
+    }
+
+    // Check if section container is empty
+    function checkSectionEmpty(groupElem) {
+      if (!groupElem) return;
+      const visibleCards = groupElem.querySelectorAll('.vaccine-card:not(.hidden):not(.card-dismissed)');
+      const emptyState = groupElem.querySelector('.empty-state-card');
+      if (emptyState) {
+        if (visibleCards.length === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+    }
+
+    // Interactive dismissal on Done button click
+    document.querySelectorAll('.action-done').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (btn.disabled) return;
+        btn.disabled = true;
+
+        const animalName = btn.dataset.name || 'Livestock';
+        const card = btn.closest('.vaccine-card');
+
+        // Button micro-interaction: pulse fill & check icon highlight
+        btn.classList.add('btn-done-pulse', 'bg-primary', 'text-on-primary');
+        btn.classList.remove('bg-secondary-container', 'text-on-secondary-fixed-variant');
+        btn.innerHTML = '<span class="material-symbols-outlined text-[20px] text-primary-fixed" style="font-variation-settings: \'FILL\' 1;">done_all</span>';
+
+        showToast(`Vaccination marked complete for ${animalName}`);
+
+        // Smooth slide & collapse dismissal animation
+        if (card) {
+          const currentHeight = card.offsetHeight;
+          card.style.maxHeight = currentHeight + 'px';
+          card.classList.add('card-dismissing');
+
+          requestAnimationFrame(() => {
+            setTimeout(() => {
+              card.classList.add('card-dismissed');
+            }, 30);
+          });
+
+          setTimeout(() => {
+            card.remove();
+            applyFilters();
+          }, 340);
+        }
+      });
+    });
+
+    // Reschedule Bottom Sheet Trigger
+    const modal = document.getElementById('reschedule-modal');
+    const modalCard = document.getElementById('reschedule-modal-card');
+    const modalTargetName = document.getElementById('reschedule-target-name');
+    const closeModalBtn = document.getElementById('close-reschedule-btn');
+    const cancelModalBtn = document.getElementById('cancel-reschedule-btn');
+    const confirmRescheduleBtn = document.getElementById('confirm-reschedule-btn');
+
+    document.querySelectorAll('.action-reschedule').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const name = btn.dataset.name || 'Animal';
+        if (modalTargetName) modalTargetName.textContent = name;
+        if (modal && modalCard) {
+          modal.classList.remove('hidden', 'animate-fade-out');
+          modal.classList.add('animate-fade-in');
+          modalCard.classList.remove('animate-scale-down');
+          modalCard.classList.add('animate-scale-up');
+        }
+      });
+    });
+
+    let isDismissingModal = false;
+    function hideModal(callback) {
+      if (!modal || !modalCard || isDismissingModal || modal.classList.contains('hidden')) return;
+      isDismissingModal = true;
+      modal.classList.remove('animate-fade-in');
+      modal.classList.add('animate-fade-out');
+      modalCard.classList.remove('animate-scale-up');
+      modalCard.classList.add('animate-scale-down');
+
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('animate-fade-out');
+        modalCard.classList.remove('animate-scale-down');
+        isDismissingModal = false;
+        if (callback) callback();
+      }, 190);
+    }
+
+    if (closeModalBtn) closeModalBtn.addEventListener('click', (e) => { e.stopPropagation(); hideModal(); });
+    if (cancelModalBtn) cancelModalBtn.addEventListener('click', (e) => { e.stopPropagation(); hideModal(); });
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          hideModal();
+        }
+      });
+    }
+
+    if (confirmRescheduleBtn) {
+      confirmRescheduleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hideModal(() => {
+          showToast('Vaccination schedule updated!');
+        });
+      });
+    }
+
+    // Species Filter Chips logic
+    const filterChips = document.querySelectorAll('.filter-chip');
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => {
+          c.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+          c.classList.add('bg-surface-container-lowest', 'text-on-surface-variant');
+        });
+        chip.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant');
+        chip.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+
+        currentSpeciesFilter = chip.dataset.filter || 'all';
+        applyFilters();
+      });
+    });
+
+    // Vaccination Dropdown logic
+    const dropBtn = document.getElementById('vac-type-btn');
+    const dropMenu = document.getElementById('vac-type-menu');
+    const dropLabel = document.getElementById('vac-type-label');
+
+    if (dropBtn && dropMenu) {
+      dropBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropMenu.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!dropBtn.contains(e.target) && !dropMenu.contains(e.target)) {
+          dropMenu.classList.add('hidden');
+        }
+      });
+
+      document.querySelectorAll('.vac-option').forEach(opt => {
+        opt.addEventListener('click', () => {
+          const text = opt.dataset.type;
+          if (dropLabel) dropLabel.textContent = text;
+          dropMenu.classList.add('hidden');
+          showToast(`Filtered: ${text}`);
+        });
+      });
+    }
+
+    // 7-day pill tap logic & dynamic date header update & filter
+    const dayPills = document.querySelectorAll('.day-pill');
+    const dateHeader = document.getElementById('current-date-header');
+    const resetToTodayBtn = document.getElementById('reset-to-today-btn');
+
+    function selectDatePill(pill) {
+      if (!pill) return;
+
+      // 1. Deactivate all pills
+      dayPills.forEach(p => {
+        p.classList.remove('is-active', 'bg-primary', 'text-on-primary');
+        p.classList.add('bg-surface-container-lowest', 'text-on-surface', 'hover:bg-surface-container-high');
+        const daySpan = p.querySelector('.day-label');
+        if (daySpan) {
+          daySpan.classList.remove('text-primary-fixed-dim');
+          daySpan.classList.add('text-outline');
+        }
+        const slot = p.querySelector('.day-indicator-slot');
+        if (slot && p.dataset.inactiveSlot) {
+          slot.innerHTML = p.dataset.inactiveSlot;
+        }
+      });
+
+      // 2. Activate clicked pill with vibrant #66d488 accent
+      pill.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'hover:bg-surface-container-high');
+      pill.classList.add('is-active');
+      const activeDaySpan = pill.querySelector('.day-label');
+      if (activeDaySpan) {
+        activeDaySpan.classList.remove('text-outline');
+      }
+
+      // Active indicator dot in high-contrast dark green
+      const activeSlot = pill.querySelector('.day-indicator-slot');
+      if (activeSlot) {
+        activeSlot.innerHTML = '<span class="day-indicator-dot w-1.5 h-1.5 rounded-full bg-[#003629]"></span>';
+      }
+
+      // 3. Update date header above (e.g. 'Wed 11 Nov')
+      const day = pill.dataset.day || '';
+      const date = pill.dataset.date || '';
+      const month = pill.dataset.month || 'Nov';
+      if (dateHeader && day && date) {
+        dateHeader.textContent = `${day} ${date} ${month}`;
+      }
+
+      // 4. Update state & filter cards
+      selectedDate = date;
+      applyFilters();
+    }
+
+    dayPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        selectDatePill(pill);
+      });
+    });
+
+    if (resetToTodayBtn) {
+      resetToTodayBtn.addEventListener('click', () => {
+        const todayPill = document.querySelector('.day-pill[data-date="10"]');
+        if (todayPill) selectDatePill(todayPill);
+      });
+    }
+
+    // Initial check
+    applyFilters();
+  })();
+</script><script>
+(function setupHenSubFilters() {
+  const femaleBadge = document.getElementById('female-only-badge');
+  const henContainer = document.getElementById('hen-toggle-container');
+  const henPills = document.querySelectorAll('.hen-filter-pill');
+  let currentHenSubFilter = 'all';
+
+  function updateSubFilterVisibility(species) {
+    if (species === 'cow') {
+      if (femaleBadge) { femaleBadge.classList.remove('hidden'); femaleBadge.classList.add('flex'); }
+      if (henContainer) { henContainer.classList.add('hidden'); henContainer.classList.remove('flex'); }
+    } else if (species === 'hen') {
+      if (femaleBadge) { femaleBadge.classList.add('hidden'); femaleBadge.classList.remove('flex'); }
+      if (henContainer) { henContainer.classList.remove('hidden'); henContainer.classList.add('flex'); }
+    } else {
+      if (femaleBadge) { femaleBadge.classList.add('hidden'); femaleBadge.classList.remove('flex'); }
+      if (henContainer) { henContainer.classList.add('hidden'); henContainer.classList.remove('flex'); }
+    }
+  }
+
+  function filterHenCards(henType) {
+    currentHenSubFilter = henType;
+    const activeChip = document.querySelector('.filter-chip.bg-primary');
+    const activeSpecies = activeChip ? activeChip.dataset.filter : 'all';
+    if (activeSpecies !== 'hen') return;
+
+    document.querySelectorAll('.vaccine-card').forEach(card => {
+      if (card.classList.contains('card-dismissed')) return;
+      if (card.dataset.species !== 'hen') {
+        card.classList.add('hidden');
+        return;
+      }
+      const cType = card.dataset.henType;
+      if (henType === 'all' || cType === henType) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  henPills.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const filterVal = pill.dataset.henFilter;
+      henPills.forEach(p => {
+        p.classList.remove('bg-[#66d488]', 'text-[#003629]', 'border-transparent', 'font-bold');
+        p.style.boxShadow = '';
+        p.classList.add('bg-surface-container-lowest', 'text-on-surface-variant', 'border-outline-variant/60');
+      });
+      pill.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant', 'border-outline-variant/60');
+      pill.classList.add('bg-[#66d488]', 'text-[#003629]', 'border-transparent', 'font-bold');
+      pill.style.boxShadow = '0 4px 12px -2px rgba(102, 212, 136, 0.45)';
+      filterHenCards(filterVal);
+
+      const toast = document.getElementById('toast-notification');
+      const toastText = document.getElementById('toast-text');
+      if (toast && toastText) {
+        const label = filterVal === 'all' ? 'All Hen flocks' : (filterVal === 'broiler' ? 'Broilers 🥚' : 'Layers 🐣');
+        toastText.textContent = 'Filtered: ' + label;
+        toast.classList.remove('opacity-0', '-translate-y-12', 'pointer-events-none');
+        toast.classList.add('opacity-100', 'translate-y-0');
+        setTimeout(() => {
+          toast.classList.add('opacity-0', '-translate-y-12', 'pointer-events-none');
+          toast.classList.remove('opacity-100', 'translate-y-0');
+        }, 2000);
+      }
+    });
+  });
+
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const species = chip.dataset.filter;
+      updateSubFilterVisibility(species);
+      if (species === 'hen') {
+        filterHenCards(currentHenSubFilter);
+      }
+    });
+  });
+
+  // Initial alignment with Cows selected by default
+  updateSubFilterVisibility('cow');
+})();
+</script><script>(function patchHenSubFilters() { const henContainer = document.getElementById('hen-toggle-container'); if (!henContainer) return; const henPills = henContainer.querySelectorAll('.hen-filter-pill'); function filterHenCards(henType) { const activeChip = document.querySelector('.filter-chip.bg-primary'); const activeSpecies = activeChip ? activeChip.dataset.filter : 'all'; if (activeSpecies !== 'hen') return; document.querySelectorAll('.vaccine-card').forEach(card => { if (card.classList.contains('card-dismissed')) return; if (card.dataset.species !== 'hen') { card.classList.add('hidden'); return; } const cType = card.dataset.henType; if (henType === 'all' || cType === henType) { card.classList.remove('hidden'); } else { card.classList.add('hidden'); } }); } henPills.forEach(pill => { pill.addEventListener('click', (e) => { e.stopPropagation(); const filterVal = pill.dataset.henFilter; henPills.forEach(p => { p.classList.remove('bg-[#bce5d6]', 'bg-[#66d488]', 'text-[#003629]', 'border-transparent', 'font-bold'); p.style.boxShadow = ''; p.style.backgroundColor = ''; p.classList.add('bg-surface-container-lowest', 'text-on-surface-variant', 'border-outline-variant/60'); }); pill.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant', 'border-outline-variant/60'); pill.classList.add('bg-[#bce5d6]', 'text-[#003629]', 'border-transparent', 'font-bold'); pill.style.backgroundColor = '#bce5d6'; pill.style.boxShadow = '0 4px 12px -2px rgba(188, 229, 214, 0.45)'; filterHenCards(filterVal); const toast = document.getElementById('toast-notification'); const toastText = document.getElementById('toast-text'); if (toast && toastText) { const label = filterVal === 'all' ? 'All Hen flocks' : (filterVal === 'broiler' ? 'Broilers 🐔' : 'Layers 🐣'); toastText.textContent = 'Filtered: ' + label; toast.classList.remove('opacity-0', '-translate-y-12', 'pointer-events-none'); toast.classList.add('opacity-100', 'translate-y-0'); setTimeout(() => { toast.classList.add('opacity-0', '-translate-y-12', 'pointer-events-none'); toast.classList.remove('opacity-100', 'translate-y-0'); }, 2000); } }, true); }); })();</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-bold"></nav><script>(function handleSpeciesChipColor() { const chips = document.querySelectorAll('.filter-chip'); chips.forEach(chip => { chip.addEventListener('click', () => { setTimeout(() => { chips.forEach(c => { c.classList.remove('bg-primary', 'text-on-primary', 'bg-[#bce5d6]', 'text-[#003629]', 'font-bold', 'shadow-sm'); c.classList.add('bg-surface-container-lowest', 'text-on-surface-variant'); }); chip.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant', 'bg-primary', 'text-on-primary'); chip.classList.add('bg-[#bce5d6]', 'text-[#003629]', 'font-bold', 'shadow-sm'); }, 0); }, false); }); })();</script>
+
+
+
+
+</body></html>

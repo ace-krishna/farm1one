@@ -1,0 +1,18 @@
+In the stitch code I've provided there are several real bugs. The main ones:
+
+Hen and female-only filters are broken. They look for .filter-chip.bg-primary, but the last script swaps that class for bg-[#bce5d6]. The Broiler/Layer pills therefore do nothing, and the Female toggle unhides cards from other species.
+Initial state is inconsistent. The Hens chip is styled as selected, but the filter is all and the Cow sub-filter is showing.
+Filters don’t combine. Date, species, hen type, female-only and vaccination type each override the others. The dropdown only changes its label and shows a toast.
+The Tue 10 pill stays mint after you deselect it, because of a leftover inline !important style. The selected colour also differs between the first load (
+#bce5d6) and later taps (
+#66d488).
+The reschedule modal has no hidden class, so it can appear on load. Confirm also doesn’t move the card.
+Counts and text don’t match the cards.
+The dropdown counts are fake (9, 4, 2...).
+Cards say “2 vaccines” but list one.
+data-name values (Gauri, Kali...) differ from the displayed names.
+Dates are hardcoded to Tue 10 Nov, but today is Sat 14 Nov.
+Smaller issues.
+The bottom <nav> is empty and the back button does nothing.
+active:scale-98 isn’t a valid Tailwind class.
+There are duplicate hen-filter scripts.
